@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Playground } from './playground';
-import './playground.js';
+
+declare var document : any;
 
 @Component({
   selector: 'app-playground',
@@ -9,7 +10,11 @@ import './playground.js';
 })
 export class PlaygroundComponent implements OnInit {
   
-    home = 'Playgrounds';    
+    home = 'Playgrounds';
+    
+    showAddPlaygroundForm(){
+        console.info("it works");    
+    }
     
   playground : Playground = {
     id: 1,
