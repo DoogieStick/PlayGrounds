@@ -1,0 +1,83 @@
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<h1 class="table-top">{{home}}</h1>
+			<button class="btn btn-success table-top-button"
+				(click)="showAddProductForm()">
+				<i class="fa fa-plus"></i>
+			</button>
+		</div>
+	</div>	
+	<div class="row">
+		<div class="col-md-12 table-responsive">	
+		<table class="table table-bordered table-striped table-hover">
+			<thead>
+				<tr>
+					<th class="text-center">ID</th>
+					<th class="text-center">Name</th>
+					<th class="text-center">Description</th>
+					<th class="text-center">Address</th>
+					<th class="text-center">Locality</th>
+					<th class="text-center">State</th>
+					<th class="text-center">Country</th>
+					<th class="text-center">&nbsp;</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>product.id</td>
+					<td>product.name</td>
+					<td>product.description</td>
+					<td>product.address</td>
+					<td>product.locality</td>
+					<td>product.state</td>
+					<td>product.country</td>
+					<td>
+						<button class="btn btn-info" routerLink="editar-playground" 
+						(click)="itWork();">
+							<i class="fa fa-edit"></i>
+						</button>
+						<button class="btn btn-danger">
+							<i class="fa fa-minus"></i>
+						</button>
+					</td>
+				</tr>
+				<tr>
+					<td>product.id</td>
+					<td>product.name</td>
+					<td>product.description</td>
+					<td>product.address</td>
+					<td>product.locality</td>
+					<td>product.state</td>
+					<td>product.country</td>
+					<td>
+						<button class="btn btn-info">
+							<i class="fa fa-edit"></i>
+						</button>
+						<button class="btn btn-danger">
+							<i class="fa fa-minus"></i>
+						</button>
+					</td>
+				</tr>
+				<tr>
+					<td>product.id</td>
+					<td>product.name</td>
+					<td>product.description</td>
+					<td>product.address</td>
+					<td>product.locality</td>
+					<td>product.state</td>
+					<td>product.country</td>
+					<td>
+						<button class="btn btn-info">
+							<i class="fa fa-edit"></i>
+						</button>
+						<button class="btn btn-danger">
+							<i class="fa fa-minus"></i>
+						</button>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		</div>
+	</div>
+</div>	

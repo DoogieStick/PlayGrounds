@@ -1,0 +1,13 @@
+tr.table-top {
+	background-color: skyblue;
+}
+
+.table-top{
+	float: left; 
+	font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
+}
+
+.table-top-button{
+	float: right; 
+	margin-top: 13px;
+}
