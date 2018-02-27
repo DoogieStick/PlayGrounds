@@ -9,22 +9,14 @@ declare var document : any;
   styleUrls: ['./playground.component.css']
 })
 export class PlaygroundComponent implements OnInit {
-  
+    
     home = 'Playgrounds';
     
     showAddPlaygroundForm(){
         console.info("it works");    
     }
     
-  playground : Playground = {
-    id: 1,
-    name: 'Windstorm',
-    description : 'just it',
-    address : 'some address',
-    locality : 'some location',
-    state : 'some state',
-    country : 'Colombia'
-  };  
+    playgrounds : Playground[] = [];
     
   constructor() { }
 
