@@ -3,7 +3,7 @@
 		<div class="col-md-12">
 			<h1 class="table-top">{{home}}</h1>
 			<button class="btn btn-success table-top-button"
-				(click)="showAddProductForm()">
+				(click)="showAddPlaygroundForm()">
 				<i class="fa fa-plus"></i>
 			</button>
 		</div>
@@ -24,51 +24,16 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr>
-					<td>product.id</td>
-					<td>product.name</td>
-					<td>product.description</td>
-					<td>product.address</td>
-					<td>product.locality</td>
-					<td>product.state</td>
-					<td>product.country</td>
+				<tr *ngFor="let playground of playgrounds">
+					<td>{{playground.id}}</td>
+					<td>{{playground.name}}</td>
+					<td>{{playground.description}}</td>
+					<td>{{playground.address}}</td>
+					<td>{{playground.locality}}</td>
+					<td>{{playground.state}}</td>
+					<td>{{playground.country}}</td>
 					<td>
-						<button class="btn btn-info" routerLink="editar-playground" 
-						(click)="itWork();">
-							<i class="fa fa-edit"></i>
-						</button>
-						<button class="btn btn-danger">
-							<i class="fa fa-minus"></i>
-						</button>
-					</td>
-				</tr>
-				<tr>
-					<td>product.id</td>
-					<td>product.name</td>
-					<td>product.description</td>
-					<td>product.address</td>
-					<td>product.locality</td>
-					<td>product.state</td>
-					<td>product.country</td>
-					<td>
-						<button class="btn btn-info">
-							<i class="fa fa-edit"></i>
-						</button>
-						<button class="btn btn-danger">
-							<i class="fa fa-minus"></i>
-						</button>
-					</td>
-				</tr>
-				<tr>
-					<td>product.id</td>
-					<td>product.name</td>
-					<td>product.description</td>
-					<td>product.address</td>
-					<td>product.locality</td>
-					<td>product.state</td>
-					<td>product.country</td>
-					<td>
-						<button class="btn btn-info">
+						<button class="btn btn-info" routerLink="editar-playground">
 							<i class="fa fa-edit"></i>
 						</button>
 						<button class="btn btn-danger">
