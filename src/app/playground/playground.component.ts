@@ -15,7 +15,7 @@ export class PlaygroundComponent implements OnInit {
     home = 'Playgrounds';
     private playsOnload = PLAYGROUNDS_ON_LOAD;
     
-    playgrounds : Playground[] = this.playsOnload.splice(1,this.playsOnload.length);
+    playgrounds : Playground[] = this.playsOnload;
     
     showAddPlaygroundForm(){
         console.info("it works");    

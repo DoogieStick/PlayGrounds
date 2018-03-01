@@ -1,8 +1,8 @@
 import { Playground } from './playground';
 
-export const PLAYGROUNDS_ON_LOAD : Playground[] = [{
+export const PLAYGROUNDS_ON_LOAD : Playground [] = [
     
-    {"id": 1,
+       {id: 1,
         "name": "Six Flags",
         "description": "Amusement Park",
         "address": "Adams Avenue, Rossvelt st 1396",
@@ -11,7 +11,7 @@ export const PLAYGROUNDS_ON_LOAD : Playground[] = [{
         "country": "USA"
         },
         
-        {"id": 2,
+        {id: 2,
         "name": "Universal",
         "description": "Amusement Park",
         "address": "Kentucky st, 96 east",
@@ -20,7 +20,7 @@ export const PLAYGROUNDS_ON_LOAD : Playground[] = [{
         "country": "USA"
         },
         
-        {"id": 3,
+        {id: 3,
         "name": "Walt Disney World",
         "description": "Amusement Park",
         "address": "Walt Disney, FL 1396",
@@ -29,7 +29,7 @@ export const PLAYGROUNDS_ON_LOAD : Playground[] = [{
         "country": "USA"
         },
         
-        {"id": 4,
+        {id: 4,
         "name": "Cedar Point",
         "description": "Amusement Park",
         "address": "1 Cedar Point Dr, Sandusk",
@@ -38,4 +38,4 @@ export const PLAYGROUNDS_ON_LOAD : Playground[] = [{
         "country": "USA"
         }
 
-}]
+];
