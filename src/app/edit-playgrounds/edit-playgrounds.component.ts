@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Playground } from 'app/playground/playground';
+import { PlaygroundService } from 'app/playground.service';
 
 declare var document : any;
 
@@ -9,16 +10,8 @@ declare var document : any;
   styleUrls: ['./edit-playgrounds.component.css']
 })
 export class EditPlaygroundsComponent implements OnInit {
-        
-  id: number;
-  private sub: any;
-
-  constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
-      this.sub = this.route.params.subscribe(params => {
-       this.id = +params['playground']; 
-    });
     document.getElementById("editForm").scrollIntoView();   
   }
 
