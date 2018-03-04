@@ -8,9 +8,12 @@ export class PlaygroundService {
     private playsOnload = PLAYGROUNDS_ON_LOAD;
     
     getPlaygroundsFromData(): Playground[] {
-    console.log(this.playsOnload);
-    return this.playsOnload
-  }
+      return this.playsOnload
+    }
+    
+    deleteProduct(id) {
+      this.playsOnload.splice(this.playsOnload.indexOf(id), 1);
+    }
     
   constructor() { }
 

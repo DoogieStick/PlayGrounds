@@ -30,7 +30,7 @@ export class PlaygroundComponent implements OnInit {
     }
     
     deletePlayground(id) {
-       // this.playsOnload.splice(this.playsOnload.indexOf(id), 1);
-      }
+     this.playgroundService.deleteProduct(id);
+    }
 
 }
