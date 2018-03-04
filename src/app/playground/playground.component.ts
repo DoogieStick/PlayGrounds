@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Playground } from './playground';
-import { PLAYGROUNDS_ON_LOAD } from './playground-data';
+import { PlaygroundService } from 'app/playground.service';
+
 
 declare var document : any;
 declare var console : any;
@@ -12,22 +13,24 @@ declare var console : any;
 })
 export class PlaygroundComponent implements OnInit {
     
+    playgrounds : Playground[];
     home = 'Playgrounds';
-    playsOnload = PLAYGROUNDS_ON_LOAD;
     
-    playgrounds : Playground[] = this.playsOnload;
+    constructor(private playgroundService : PlaygroundService) { }
+
+    ngOnInit() {
+        this.getPlaygrounds();
+    }
     
+    getPlaygrounds() {
+        this.playgrounds = this.playgroundService.getPlaygroundsFromData();
+    }
     showAddPlaygroundForm(){
         console.info("it works");    
     }
     
     deletePlayground(id) {
-        this.playsOnload.splice(this.playsOnload.indexOf(id), 1);
+       // this.playsOnload.splice(this.playsOnload.indexOf(id), 1);
       }
-    
-  constructor() { }
-
-  ngOnInit() {
-  }
 
 }

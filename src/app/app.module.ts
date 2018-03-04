@@ -9,6 +9,7 @@ import { PlaygroundComponent } from './playground/playground.component';
 import { EditPlaygroundsComponent } from './edit-playgrounds/edit-playgrounds.component';
 
 import { AppRoutingModule }     from './app-routing.module';
+import { PlaygroundService } from './playground.service';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 
@@ -27,7 +28,7 @@ import { AngularFontAwesomeModule } from 'angular-font-awesome';
     RouterTestingModule,
     AngularFontAwesomeModule
   ],
-  providers: [],
+  providers: [PlaygroundService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
