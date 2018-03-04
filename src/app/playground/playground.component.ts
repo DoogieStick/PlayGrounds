@@ -21,9 +21,9 @@ export class PlaygroundComponent implements OnInit {
         console.info("it works");    
     }
     
-    deletePlayground(){
-        console.info("it works");    
-    }
+    deletePlayground(id) {
+        this.playsOnload.splice(this.playsOnload.indexOf(id), 1);
+      }
     
   constructor() { }
 
