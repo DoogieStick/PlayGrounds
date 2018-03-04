@@ -6,7 +6,7 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { PlaygroundComponent } from './playground/playground.component';
-import { EditarPlaygroundsComponent } from './editar-playgrounds/editar-playgrounds.component';
+import { EditPlaygroundsComponent } from './edit-playgrounds/edit-playgrounds.component';
 
 import { AppRoutingModule }     from './app-routing.module';
 import { RouterTestingModule } from '@angular/router/testing';
@@ -17,7 +17,7 @@ import { AngularFontAwesomeModule } from 'angular-font-awesome';
     AppComponent,
     NavBarComponent,
     PlaygroundComponent,
-    EditarPlaygroundsComponent,
+    EditPlaygroundsComponent,
   ],
   imports: [
     BrowserModule,

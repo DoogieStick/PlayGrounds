@@ -4,11 +4,11 @@ import { ActivatedRoute } from '@angular/router';
 declare var document : any;
 
 @Component({
-  selector: 'app-editar-playgrounds',
-  templateUrl: './editar-playgrounds.component.html',
-  styleUrls: ['./editar-playgrounds.component.css']
+  selector: 'app-edit-playgrounds',
+  templateUrl: './edit-playgrounds.component.html',
+  styleUrls: ['./edit-playgrounds.component.css']
 })
-export class EditarPlaygroundsComponent implements OnInit {
+export class EditPlaygroundsComponent implements OnInit {
         
   id: number;
   private sub: any;

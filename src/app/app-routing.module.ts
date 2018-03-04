@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { EditarPlaygroundsComponent } from './editar-playgrounds/editar-playgrounds.component';
+import { EditPlaygroundsComponent } from './edit-playgrounds/edit-playgrounds.component';
 
 const routes: Routes = [
-  { path: 'editar-playground/:id', component: EditarPlaygroundsComponent }
+  { path: 'edit-playground/:id', component: EditPlaygroundsComponent }
 ];
 
 @NgModule({
