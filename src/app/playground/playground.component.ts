@@ -13,7 +13,7 @@ declare var console : any;
 export class PlaygroundComponent implements OnInit {
     
     home = 'Playgrounds';
-    private playsOnload = PLAYGROUNDS_ON_LOAD;
+    playsOnload = PLAYGROUNDS_ON_LOAD;
     
     playgrounds : Playground[] = this.playsOnload;
     
