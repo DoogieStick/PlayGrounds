@@ -22,8 +22,8 @@ export class EditPlaygroundsComponent implements OnInit {
       this.sub = this.route.params.subscribe(params => {
          this.id = +params['playground'];
       });
-      this.playground = this.playgroundService.getPlaygroundToEdit(this.id);    
-      document.getElementById("editForm").scrollIntoView();   
+        this.playground = this.playgroundService.getPlaygroundToEdit(this.id);
+        document.getElementById("editForm").scrollIntoView();   
     }
 
 }
