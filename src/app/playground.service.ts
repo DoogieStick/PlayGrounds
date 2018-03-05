@@ -11,6 +11,14 @@ export class PlaygroundService {
       return this.playsOnload
     }
     
+    getPlaygroundToEdit(id){
+        for (let entry of this.playsOnload) {
+            if(id == entry.id){
+                return entry;
+            }
+        }
+    }
+    
     deleteProduct(id) {
       this.playsOnload.splice(this.playsOnload.indexOf(id), 1);
     }
