@@ -33,7 +33,7 @@
 					<td>{{playground.state}}</td>
 					<td>{{playground.country}}</td>
 					<td>
-						<button class="btn btn-info" routerLink="editar-playground">
+						<button class="btn btn-info" [routerLink]="['edit-playground', playground.id]">
 							<i class="fa fa-edit"></i>
 						</button>
 						<button class="btn btn-danger" (click)="deletePlayground(playground.id)">
