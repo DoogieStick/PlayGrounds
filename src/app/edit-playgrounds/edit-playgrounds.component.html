@@ -5,7 +5,7 @@
 			<table>
 				<tr>
 					<th>ID:</th>
-					<th><input style="border-radius: 7px;" type="text" name="id" value={{playground.id}}/></th>
+					<th><input style="border-radius: 7px;" type="text" name="id" ng-model="playground.id" value={{playground.id}}/></th>
 				</tr>
 				<tr>
 					<th>Name:</th>
@@ -35,7 +35,7 @@
 				<tr>
 					<button style="margin-right: 10px;" type="button"
 						class="btn btn-primary">Submit</button>
-					<button type="button" class="btn btn-warning">Cancel</button>
+					<button type="button" class="btn btn-warning" (click)="hidePlayground();">Cancel</button>
 				</tr>
 				<br>
 			</table>

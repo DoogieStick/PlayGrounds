@@ -20,10 +20,14 @@ export class EditPlaygroundsComponent implements OnInit {
     
     ngOnInit() {
       this.sub = this.route.params.subscribe(params => {
-         this.id = +params['playground'];
+         this.id = +params['id'];
+         this.playground = this.playgroundService.getPlaygroundToEdit(this.id);
+          document.getElementById("editForm").style.display = "block";    
+         document.getElementById("editForm").scrollIntoView();    
       });
-        this.playground = this.playgroundService.getPlaygroundToEdit(this.id);
-        document.getElementById("editForm").scrollIntoView();   
     }
-
+    
+    hidePlayground(){
+       document.getElementById("editForm").style.display = "none";     
+    }
 }

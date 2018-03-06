@@ -5,7 +5,7 @@ import { Playground } from './playground/playground';
 import { EditPlaygroundsComponent } from './edit-playgrounds/edit-playgrounds.component';
 
 const routes: Routes = [
-  { path: 'edit-playground/:playground', component: EditPlaygroundsComponent}
+  { path: 'edit-playground/:id', component: EditPlaygroundsComponent}
 ];
 
 @NgModule({
