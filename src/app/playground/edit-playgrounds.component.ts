@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Playground } from './playground';
-import { PlaygroundService } from 'app/playground.service';
+import { PlaygroundService } from 'app/playground/playground.service';
 
 declare var document : any;
 

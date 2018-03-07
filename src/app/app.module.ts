@@ -9,7 +9,7 @@ import { PlaygroundComponent } from './playground/playground.component';
 import { EditPlaygroundsComponent } from './playground/edit-playgrounds.component';
 
 import { AppRoutingModule }     from './app-routing.module';
-import { PlaygroundService } from './playground.service';
+import { PlaygroundService } from './playground/playground.service';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 
