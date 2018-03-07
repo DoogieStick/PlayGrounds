@@ -1,14 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Playground } from 'app/playground/playground';
+import { Playground } from './playground';
 import { PlaygroundService } from 'app/playground.service';
 
 declare var document : any;
 
 @Component({
   selector: 'app-edit-playgrounds',
-  templateUrl: './edit-playgrounds.component.html',
-  styleUrls: ['./edit-playgrounds.component.css']
+  templateUrl: './edit-playgrounds.component.html'
 })
 export class EditPlaygroundsComponent implements OnInit {
  
