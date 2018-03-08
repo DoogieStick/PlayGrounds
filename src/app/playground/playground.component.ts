@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Playground } from './playground';
-import { PlaygroundService } from 'app/playground.service';
+import { PlaygroundService } from './playground.service';
 
 
 declare var document : any;

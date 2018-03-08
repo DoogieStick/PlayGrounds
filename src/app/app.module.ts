@@ -6,12 +6,15 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { PlaygroundComponent } from './playground/playground.component';
-import { EditPlaygroundsComponent } from './edit-playgrounds/edit-playgrounds.component';
+import { EditPlaygroundsComponent } from './playground/edit-playgrounds.component';
+import { EquipmentComponent } from './equipment/equipment.component';
 
 import { AppRoutingModule }     from './app-routing.module';
-import { PlaygroundService } from './playground.service';
+import { PlaygroundService } from './playground/playground.service';
+import { EquipmentService } from './equipment/equipment.service';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
+
 
 @NgModule({
   declarations: [
@@ -19,6 +22,7 @@ import { AngularFontAwesomeModule } from 'angular-font-awesome';
     NavBarComponent,
     PlaygroundComponent,
     EditPlaygroundsComponent,
+	EquipmentComponent,
   ],
   imports: [
     BrowserModule,
@@ -28,7 +32,7 @@ import { AngularFontAwesomeModule } from 'angular-font-awesome';
     RouterTestingModule,
     AngularFontAwesomeModule
   ],
-  providers: [PlaygroundService],
+  providers: [PlaygroundService, EquipmentService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
