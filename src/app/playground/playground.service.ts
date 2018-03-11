@@ -19,6 +19,10 @@ export class PlaygroundService {
         }
     }
     
+    editPlayground(playground){
+        this.playsOnload[playground.id - 1] = playground;
+    }
+    
     deleteProduct(id) {
       this.playsOnload.splice(this.playsOnload.indexOf(id), 1);
     }
