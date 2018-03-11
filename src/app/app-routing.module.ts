@@ -4,13 +4,11 @@ import { Playground } from './playground/playground';
 
 import { EditPlaygroundsComponent } from './playground/edit-playgrounds.component';
 
-const routes: Routes = [
-  { path: 'edit-playground/:id', component: EditPlaygroundsComponent}
-];
+const routes: Routes = [];
 
 @NgModule({
   imports: [ RouterModule.forRoot(routes) ],
   exports: [ RouterModule ]
 })
     
-export class AppRoutingModule { }
+export class AppRoutingModule {}

@@ -12,6 +12,7 @@ import { AppRoutingModule }     from './app-routing.module';
 import { PlaygroundService } from './playground/playground.service';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
+import { PlaygroundRoutingModule } from './playground/playground-routing.module';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { AngularFontAwesomeModule } from 'angular-font-awesome';
     HttpModule,
     AppRoutingModule,
     RouterTestingModule,
-    AngularFontAwesomeModule
+    AngularFontAwesomeModule,
+    PlaygroundRoutingModule
   ],
   providers: [PlaygroundService],
   bootstrap: [AppComponent]
