@@ -8,7 +8,7 @@ export class PlaygroundService {
     private playsOnload = PLAYGROUNDS_ON_LOAD;
     
     getPlaygroundsFromData(): Playground[] {
-      return this.playsOnload
+      return this.playsOnload;
     }
     
     getPlaygroundToEdit(id){
@@ -22,7 +22,5 @@ export class PlaygroundService {
     deleteProduct(id) {
       this.playsOnload.splice(this.playsOnload.indexOf(id), 1);
     }
-    
-  constructor() { }
-
+  constructor() {}
 }

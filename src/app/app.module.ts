@@ -14,6 +14,7 @@ import { PlaygroundService } from './playground/playground.service';
 import { EquipmentService } from './equipment/equipment.service';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
+import { PlaygroundRoutingModule } from './playground/playground-routing.module';
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import { AngularFontAwesomeModule } from 'angular-font-awesome';
     HttpModule,
     AppRoutingModule,
     RouterTestingModule,
-    AngularFontAwesomeModule
+    AngularFontAwesomeModule,
+    PlaygroundRoutingModule
   ],
   providers: [PlaygroundService, EquipmentService],
   bootstrap: [AppComponent]
