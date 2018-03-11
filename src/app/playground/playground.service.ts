@@ -22,6 +22,5 @@ export class PlaygroundService {
     deleteProduct(id) {
       this.playsOnload.splice(this.playsOnload.indexOf(id), 1);
     }
-    
   constructor() {}
 }
