@@ -15,11 +15,16 @@ export class PlaygroundComponent implements OnInit {
     
     playgrounds : Playground[];
     home = 'Playgrounds';
+    visible: boolean = true;
+    breakpoint: number = 768;
     
-    constructor(private playgroundService : PlaygroundService) { }
+    constructor(private playgroundService : PlaygroundService) { 
+        
+    }
 
     ngOnInit() {
-        this.getPlaygrounds();
+      this.getPlaygrounds();
+      if(screen.width < 768){this.visible = false;}  
     }
     
     getPlaygrounds() {
@@ -29,8 +34,17 @@ export class PlaygroundComponent implements OnInit {
         console.info("it works");    
     }
     
-    deletePlayground(id) {
-     this.playgroundService.deleteProduct(id);
+    deletePlayground(name) {
+     this.playgroundService.deleteProduct(name);
+    }
+    
+    onResize(event) {
+      const w = event.target.innerWidth;
+      if (w >= this.breakpoint) {
+        this.visible = true;
+      } else {
+        this.visible = false;
+      }
     }
 
 }

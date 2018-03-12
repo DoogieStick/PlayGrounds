@@ -23,8 +23,12 @@ export class PlaygroundService {
         this.playsOnload[playground.id - 1] = playground;
     }
     
-    deleteProduct(id) {
-      this.playsOnload.splice(this.playsOnload.indexOf(id), 1);
+    deleteProduct(name) {
+      this.playsOnload.forEach((item, index) => {
+            if(item.name === name){
+                this.playsOnload.splice(index , 1);    
+            }
+      });      
     }
   constructor() {}
 }
