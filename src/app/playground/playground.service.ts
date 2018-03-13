@@ -19,6 +19,10 @@ export class PlaygroundService {
         }
     }
     
+    addPlayground(playground){
+        this.playsOnload.push(playground);
+    }
+    
     editPlayground(playground){
         this.playsOnload[playground.id - 1] = playground;
     }

@@ -15,6 +15,7 @@ import { EquipmentService } from './equipment/equipment.service';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { PlaygroundRoutingModule } from './playground/playground-routing.module';
+import { AddPlaygroundComponent } from './playground/add-playground.component';
 
 
 @NgModule({
@@ -24,6 +25,7 @@ import { PlaygroundRoutingModule } from './playground/playground-routing.module'
     PlaygroundComponent,
     EditPlaygroundsComponent,
 	EquipmentComponent,
+	AddPlaygroundComponent,
   ],
   imports: [
     BrowserModule,
