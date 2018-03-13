@@ -37,10 +37,22 @@ export class EditPlaygroundsComponent implements OnInit {
         this.newPlayground.country = document.getElementsByName("country")[0].value;
         this.playgroundService.editPlayground(this.newPlayground);
         this.newPlayground = [];
-        this.hidePlayground();        
+        this.focusOnPlayground();
+        this.hidePlayground();                
     }
     
     hidePlayground(){
        document.getElementById("editForm").style.display = "none";     
     }
+    
+    focusOnPlayground(){
+        
+        if(screen.width < 768){
+            var element = document.getElementById("Mplayground"+this.id);
+        }else{
+            var element = document.getElementById("playground"+this.id);
+        }
+        element.scrollIntoView();     
+    }
+    
 }

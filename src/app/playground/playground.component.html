@@ -24,7 +24,7 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr *ngFor="let playground of playgrounds">
+				<tr id="playground{{playground.id}}" *ngFor="let playground of playgrounds">
 					<td>{{playground.id}}</td>
 					<td>{{playground.name}}</td>
 					<td>{{playground.description}}</td>
@@ -44,8 +44,8 @@
 			</tbody>
 		</table>
 		</div>
-		<div class="container" [hidden]="visible" (window:resize)="onResize($event)">
-		  <div class="card" *ngFor="let playground of playgrounds">
+		<div class="container" id="Mplayground{{playground.id}}" *ngFor="let playground of playgrounds" [hidden]="visible" (window:resize)="onResize($event)">
+		  <div class="card">
 		    <div class="card-body">
 			  <div class="pull-right">
 				  <button class="btn btn-info" [routerLink]="['edit-playground', playground.id]">
