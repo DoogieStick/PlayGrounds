@@ -3,13 +3,13 @@
 		<div class="col-md-12">
 			<h1 class="table-top">{{home}}</h1>
 			<button class="btn btn-success table-top-button"
-				(click)="showAddProductForm()">
+				(click)="showAddPlaygroundForm()">
 				<i class="fa fa-plus"></i>
 			</button>
 		</div>
 	</div>	
 	<div class="row">
-		<div class="col-md-12 table-responsive">	
+		<div class="col-md-12 table-responsive" [hidden]="!visible" (window:resize)="onResize($event)">	
 		<table class="table table-bordered table-striped table-hover">
 			<thead>
 				<tr>
@@ -24,60 +24,46 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr>
-					<td>product.id</td>
-					<td>product.name</td>
-					<td>product.description</td>
-					<td>product.address</td>
-					<td>product.locality</td>
-					<td>product.state</td>
-					<td>product.country</td>
+				<tr *ngFor="let playground of playgrounds">
+					<td>{{playground.id}}</td>
+					<td>{{playground.name}}</td>
+					<td>{{playground.description}}</td>
+					<td>{{playground.address}}</td>
+					<td>{{playground.locality}}</td>
+					<td>{{playground.state}}</td>
+					<td>{{playground.country}}</td>
 					<td>
-						<button class="btn btn-info" routerLink="editar-playground" 
-						(click)="itWork();">
+						<button class="btn btn-info" [routerLink]="['edit-playground', playground.id]">
 							<i class="fa fa-edit"></i>
 						</button>
-						<button class="btn btn-danger">
-							<i class="fa fa-minus"></i>
-						</button>
-					</td>
-				</tr>
-				<tr>
-					<td>product.id</td>
-					<td>product.name</td>
-					<td>product.description</td>
-					<td>product.address</td>
-					<td>product.locality</td>
-					<td>product.state</td>
-					<td>product.country</td>
-					<td>
-						<button class="btn btn-info">
-							<i class="fa fa-edit"></i>
-						</button>
-						<button class="btn btn-danger">
-							<i class="fa fa-minus"></i>
-						</button>
-					</td>
-				</tr>
-				<tr>
-					<td>product.id</td>
-					<td>product.name</td>
-					<td>product.description</td>
-					<td>product.address</td>
-					<td>product.locality</td>
-					<td>product.state</td>
-					<td>product.country</td>
-					<td>
-						<button class="btn btn-info">
-							<i class="fa fa-edit"></i>
-						</button>
-						<button class="btn btn-danger">
+						<button class="btn btn-danger" (click)="deletePlayground(playground.name)">
 							<i class="fa fa-minus"></i>
 						</button>
 					</td>
 				</tr>
 			</tbody>
 		</table>
+		</div>
+		<div class="container" [hidden]="visible" (window:resize)="onResize($event)">
+		  <div class="card" *ngFor="let playground of playgrounds">
+		    <div class="card-body">
+			  <div class="pull-right">
+				  <button class="btn btn-info" [routerLink]="['edit-playground', playground.id]">
+					<i class="fa fa-edit"></i>
+				  </button>
+				  <button class="btn btn-danger" (click)="deletePlayground(playground.name)">
+					<i class="fa fa-minus"></i>
+				  </button>
+			  </div>
+			  <br><br>
+		      <h4 class="card-title">{{playground.name}}</h4>		      
+		      <p class="card text-center">{{playground.description}}</p>
+		      <p class="card text-center">{{playground.address}}</p>
+		      <p class="card text-center">{{playground.locality}}</p>
+		      <p class="card text-center">{{playground.state}}</p>
+		      <p class="card text-center">{{playground.country}}</p>
+		    </div>
+		  </div>
 		</div>
 	</div>
 </div>	

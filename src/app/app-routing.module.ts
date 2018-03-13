@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-
-import { EditarPlaygroundsComponent } from './editar-playgrounds/editar-playgrounds.component';
+import { Playground } from './playground/playground';
+import { EquipmentComponent } from './equipment/equipment.component';
 
 const routes: Routes = [
-  { path: 'editar-playground', component: EditarPlaygroundsComponent }
+  { path: 'equipment', component: EquipmentComponent, pathMatch: 'full' }
 ];
 
 @NgModule({
@@ -12,4 +12,4 @@ const routes: Routes = [
   exports: [ RouterModule ]
 })
     
-export class AppRoutingModule { }
+export class AppRoutingModule {}
