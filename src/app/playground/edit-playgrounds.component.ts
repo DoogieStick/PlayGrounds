@@ -28,6 +28,8 @@ export class EditPlaygroundsComponent implements OnInit {
     }
      
     editPlayground(){
+        document.getElementById("editForm").style.display = "block";    
+        document.getElementById("editForm").scrollIntoView();
         this.newPlayground.id = document.getElementsByName("id")[0].value;
         this.newPlayground.name = document.getElementsByName("name")[0].value;
         this.newPlayground.description = document.getElementsByName("description")[0].value;
