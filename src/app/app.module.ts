@@ -16,6 +16,7 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { PlaygroundRoutingModule } from './playground/playground-routing.module';
 import { AddPlaygroundComponent } from './playground/add-playground.component';
+import { CheckListComponent } from './check-list/check-list.component';
 
 
 @NgModule({
@@ -26,6 +27,7 @@ import { AddPlaygroundComponent } from './playground/add-playground.component';
     EditPlaygroundsComponent,
 	EquipmentComponent,
 	AddPlaygroundComponent,
+	CheckListComponent,
   ],
   imports: [
     BrowserModule,
