@@ -1,0 +1,44 @@
+<div id="addForm" class="container">
+	<div class="col-md-12">
+		<form>
+			<h2>Add Playground Information</h2>
+			<table>
+				<tr>
+					<th>ID:</th>
+					<th><input style="border-radius: 7px;" type="text" name="id" value=""/></th>
+				</tr>
+				<tr>
+					<th>Name:</th>
+					<th><input style="border-radius: 7px;" type="text" name="name" value="" /></th>
+				</tr>
+				<tr>
+					<th>Description:</th>
+					<th><input style="border-radius: 7px;" type="text" name="description" value=""/></th>
+				</tr>
+				<tr>
+					<th>Address:</th>
+					<th><input style="border-radius: 7px;" type="text" name="address" value=""/></th>
+				</tr>
+				<tr>
+					<th>Locality:</th>
+					<th><input style="border-radius: 7px;" type="text" name="locality" value=""/></th>
+				</tr>
+				<tr>
+					<th>State:</th>
+					<th><input style="border-radius: 7px;" type="text" name="state" value=""/></th>
+				</tr>
+				<tr>
+					<th>Country:</th>
+					<th><input style="border-radius: 7px;" type="text" name="country" value=""/></th>
+				</tr>
+				<br>
+				<tr>
+					<button style="margin-right: 10px;" type="button" class="btn btn-primary" (click)="addPlayground();">Submit</button>
+					<button type="button" class="btn btn-warning" (click)="hidePlayground();">Cancel</button>
+				</tr>
+				<br>
+			</table>
+		</form>
+	</div>
+</div>		
+	
