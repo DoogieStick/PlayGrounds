@@ -27,6 +27,9 @@
 					<td>{{equipment.description}}</td>
 					<td>{{equipment.selfManufactured}}</td>
 					<td>
+				<button class="btn btn-info" [routerLink]="['edit-equipment', equipment.id]">
+					<i class="fa fa-edit"></i>
+				  </button>
 						<button class="btn btn-danger" (click)="deleteEquipment(equipment.id)">
 							<i class="fa fa-minus"></i>
 						</button>

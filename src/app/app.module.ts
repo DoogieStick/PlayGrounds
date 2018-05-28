@@ -9,6 +9,7 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { PlaygroundComponent } from './playground/playground.component';
 import { EditPlaygroundsComponent } from './playground/edit-playgrounds.component';
 import { EquipmentComponent } from './equipment/equipment.component';
+import { EditEquipmentsComponent } from './equipment/edit-equipments.component';
 
 import { AppRoutingModule }     from './app-routing.module';
 import { PlaygroundService } from './playground/playground.service';
@@ -27,6 +28,7 @@ import { CheckListComponent } from './check-list/check-list.component';
     PlaygroundComponent,
     EditPlaygroundsComponent,
 	EquipmentComponent,
+	EditEquipmentsComponent,
 	AddPlaygroundComponent,
 	CheckListComponent,
   ],

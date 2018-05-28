@@ -1,0 +1,31 @@
+<div id="editForm" class="container">
+	<div class="col-md-12">
+		<form>
+			<h2>Edit Equipment Information</h2>
+			<table>
+				<tr>
+					<th>ID:</th>
+					<th><input style="border-radius: 7px;" type="text" name="id" value={{equipment.id}}/></th>
+				</tr>
+				<tr>
+					<th>Code:</th>
+					<th><input style="border-radius: 7px;" type="text" name="code" value={{equipment.code}} /></th>
+				</tr>
+				<tr>
+					<th>Description:</th>
+					<th><input style="border-radius: 7px;" type="text" name="description" value={{equipment.description}}/></th>
+				</tr>
+				<tr>
+					<th>SelfManufactured:</th>
+					<th><input style="border-radius: 7px;" type="text" name="selfManufactured" value={{equipment.selfManufactured}}/></th>
+				</tr>		
+				<tr>
+					<button style="margin-right: 10px;" type="button" class="btn btn-primary" (click)="editEquipment();">Submit</button>
+					<button type="button" class="btn btn-warning" (click)="hideEquipment();">Cancel</button>
+				</tr>
+				<br>
+			</table>
+		</form>
+	</div>
+</div>		
+	
