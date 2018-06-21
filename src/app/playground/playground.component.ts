@@ -28,7 +28,10 @@ export class PlaygroundComponent implements OnInit {
     }
     
     getPlaygrounds() {
-        this.playgrounds = this.playgroundService.getPlaygroundsFromData();
+        this.playgroundService.getPlaygroundsFromData()
+        .then(result => {
+            this.playgrounds = result.Items;
+        });
     }
     showAddPlaygroundForm(){
         console.info("it works");    
