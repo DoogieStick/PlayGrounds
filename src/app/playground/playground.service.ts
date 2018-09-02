@@ -15,21 +15,20 @@ export class PlaygroundService {
     private anyErrors: boolean;
     private finished: boolean;
     public plays: any = [];
+    public url = 'https://2l1kixhiw8.execute-api.sa-east-1.amazonaws.com/Playgrounds/playgrounds';
 
     getPlaygroundsFromData(): Promise<any> {
 
-      const method = RequestMethod.Get;
-      const req = this.requestHTTP(method);
-
         return new Promise((resolve, reject) => {
 
-            this.http.request(req).map(response => response.json()).subscribe(result => {
-
+        let options = new RequestOptions({ headers: new Headers({'x-api-key': 'qmbGnJ4yQONHUgZT2ZJn1RW4x3jshSvas24L7YKg',
+        'tableName':'Playgrounds','quantity': 500}) });
+		return this.http.get(this.url, options)
+			   .map(response => response.json()).subscribe(result => {
+                this.playsOnload = result.Items,
                 resolve(result);
-
             });
-
-        });
+       });
 
     }
 
@@ -41,39 +40,40 @@ export class PlaygroundService {
         }
     }
 
-    addPlayground(playground) {
-        this.playsOnload.push(playground);
-    }
+    addOrEditPlayground(playground) {
+      
+      return new Promise((resolve, reject) => {
 
-    editPlayground(playground) {
-        this.playsOnload[playground.id - 1] = playground;
-    }
+        let options = new RequestOptions({ headers: new Headers({'Content-Type': 'application/json',
+        'x-api-key': 'qmbGnJ4yQONHUgZT2ZJn1RW4x3jshSvas24L7YKg','tableName':'Playgrounds','quantity': 500}) });
 
-    deleteProduct(name) {
-      this.playsOnload.forEach((item, index) => {
-            if (item.name === name) {
-                this.playsOnload.splice(index , 1);
-            }
+        var play = {
+            "id":parseInt(playground.id),
+            "name":playground.name,
+            "description":playground.description,
+            "address":playground.address,
+            "country":playground.country,
+            "state":playground.state,
+            "locality":playground.locality
+        };
+
+        return this.http.put(this.url , play, options).map(response => response.json()).subscribe(result => {
+            resolve(result);
+        });
       });
     }
 
-    requestHTTP(method) {
+    deletePlayground(id) {
+        return new Promise((resolve, reject) => {
 
-        const headerDict = {
-          'x-api-key': 'qmbGnJ4yQONHUgZT2ZJn1RW4x3jshSvas24L7YKg'
-        }
-
-
-        const options = new RequestOptions({
-          headers: new Headers(headerDict),
-          method: method,
-          url: 'https://2l1kixhiw8.execute-api.sa-east-1.amazonaws.com/Playgrounds/playgrounds',
+        let options = new RequestOptions({ headers: new Headers({'Content-Type': 'application/json',
+        'x-api-key': 'qmbGnJ4yQONHUgZT2ZJn1RW4x3jshSvas24L7YKg','tableName':'Playgrounds','quantity': 500}) });
+            
+        var play = {"id":parseInt(id)};
+        
+        return this.http.post(this.url , play, options).map(response => response.json()).subscribe(result => {
+            resolve(result);
         });
-
-        const req = new Request(options);
-        return req;
-
+      });
     }
-
-
 }

@@ -27,16 +27,7 @@ export class AddPlaygroundComponent implements OnInit {
         this.newPlayground.locality = document.getElementsByName("locality")[0].value;
         this.newPlayground.state = document.getElementsByName("state")[0].value;
         this.newPlayground.country = document.getElementsByName("country")[0].value;
-        this.playgroundService.addPlayground(this.newPlayground);
+        this.playgroundService.addOrEditPlayground(this.newPlayground);
         this.newPlayground = [];
-        this.focusOnPlayground();
-        this.hidePlayground();                
-    }
-    
-    hidePlayground(){
-       document.getElementById("addForm").style.display = "none";     
-    }
-    focusOnPlayground(){
-        document.getElementsByTagName("app-playground")[0].scrollIntoView();
     }
 }

@@ -33,12 +33,9 @@ export class PlaygroundComponent implements OnInit {
             this.playgrounds = result.Items;
         });
     }
-    showAddPlaygroundForm(){
-        console.info("it works");    
-    }
     
-    deletePlayground(name) {
-     this.playgroundService.deleteProduct(name);
+    deletePlayground(id) {
+     this.playgroundService.deletePlayground(id);
     }
     
     onResize(event) {

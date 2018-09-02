@@ -37,7 +37,7 @@ export class EditPlaygroundsComponent implements OnInit {
         this.newPlayground.locality = document.getElementsByName("locality")[0].value;
         this.newPlayground.state = document.getElementsByName("state")[0].value;
         this.newPlayground.country = document.getElementsByName("country")[0].value;
-        this.playgroundService.editPlayground(this.newPlayground);
+        this.playgroundService.addOrEditPlayground(this.newPlayground);
         this.newPlayground = [];
         this.focusOnPlayground();
         this.hidePlayground();                
