@@ -11,7 +11,7 @@ import { EditPlaygroundsComponent } from './playground/edit-playgrounds.componen
 import { EquipmentComponent } from './equipment/equipment.component';
 import { EditEquipmentsComponent } from './equipment/edit-equipments.component';
 
-import { AppRoutingModule }     from './app-routing.module';
+import { AppRoutingModule } from './app-routing.module';
 import { PlaygroundService } from './playground/playground.service';
 import { EquipmentService } from './equipment/equipment.service';
 import { RouterTestingModule } from '@angular/router/testing';

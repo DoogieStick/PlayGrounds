@@ -4,11 +4,14 @@ import { Injectable } from '@angular/core';
 import {Observable} from 'rxjs/Observable';
 import { Http, Headers, Response, RequestOptions, Request, RequestMethod } from '@angular/http';
 import 'rxjs/add/operator/map';
+import { Router } from '@angular/router';
+
+declare var document : any;
 
 @Injectable()
 export class PlaygroundService {
 
-      constructor(private http: Http) {}
+      constructor(private http: Http, private router : Router) {}
 
     public playsOnload = PLAYGROUNDS_ON_LOAD;
     private values: Array<Playground> = [];
@@ -58,6 +61,7 @@ export class PlaygroundService {
         };
 
         return this.http.put(this.url , play, options).map(response => response.json()).subscribe(result => {
+            this.router.navigate(['']);
             resolve(result);
         });
       });
@@ -72,6 +76,7 @@ export class PlaygroundService {
         var play = {"id":parseInt(id)};
         
         return this.http.post(this.url , play, options).map(response => response.json()).subscribe(result => {
+            document.location.reload();
             resolve(result);
         });
       });
