@@ -19,6 +19,7 @@ import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { PlaygroundRoutingModule } from './playground/playground-routing.module';
 import { AddPlaygroundComponent } from './playground/add-playground.component';
 import { CheckListComponent } from './check-list/check-list.component';
+import { LoadingComponent } from './loading/loading.component';
 
 
 @NgModule({
@@ -31,6 +32,7 @@ import { CheckListComponent } from './check-list/check-list.component';
 	EditEquipmentsComponent,
 	AddPlaygroundComponent,
 	CheckListComponent,
+	LoadingComponent,
   ],
   imports: [
     BrowserModule,

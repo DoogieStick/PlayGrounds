@@ -11,7 +11,7 @@ const routesPlaygrounds: Routes = [
 ];
 
 @NgModule({
-    imports: [ RouterModule.forRoot(routesPlaygrounds) ],
+    imports: [RouterModule.forRoot(routesPlaygrounds,{useHash: true})],
   exports: [ RouterModule ]
 })
 export class PlaygroundRoutingModule {}
