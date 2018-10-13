@@ -46,5 +46,4 @@ export class PlaygroundComponent implements OnInit {
         this.visible = false;
       }
     }
-
 }

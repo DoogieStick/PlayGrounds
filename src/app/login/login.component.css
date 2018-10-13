@@ -1,0 +1,30 @@
+.play-back{
+    background-image: url("/assets/images/playground.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    width: 100%;
+}
+
+.Absolute-Center {
+  margin: auto;
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 0;
+  background-color: #0051a2;
+  padding: 4%;
+  overflow: hidden;
+  height: max-content;
+  width: max-content;
+  border-radius: 7%;
+}
+
+@media (min-width: 768px){
+    .Absolute-Center {
+        width: 35%;      
+    }
+}
+
+.font-color{
+    color: white;
+}

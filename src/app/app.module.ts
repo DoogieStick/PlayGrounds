@@ -12,6 +12,7 @@ import { EquipmentComponent } from './equipment/equipment.component';
 import { EditEquipmentsComponent } from './equipment/edit-equipments.component';
 
 import { AppRoutingModule } from './app-routing.module';
+import { LoginService } from './login/login.service';
 import { PlaygroundService } from './playground/playground.service';
 import { EquipmentService } from './equipment/equipment.service';
 import { RouterTestingModule } from '@angular/router/testing';
@@ -20,6 +21,7 @@ import { PlaygroundRoutingModule } from './playground/playground-routing.module'
 import { AddPlaygroundComponent } from './playground/add-playground.component';
 import { CheckListComponent } from './check-list/check-list.component';
 import { LoadingComponent } from './loading/loading.component';
+import { LoginComponent } from './login/login.component';
 
 
 @NgModule({
@@ -33,6 +35,7 @@ import { LoadingComponent } from './loading/loading.component';
 	AddPlaygroundComponent,
 	CheckListComponent,
 	LoadingComponent,
+	LoginComponent,
   ],
   imports: [
     BrowserModule,
@@ -44,7 +47,7 @@ import { LoadingComponent } from './loading/loading.component';
     AngularFontAwesomeModule,
     PlaygroundRoutingModule
   ],
-  providers: [PlaygroundService, EquipmentService],
+  providers: [PlaygroundService, EquipmentService, LoginService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
