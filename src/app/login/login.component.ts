@@ -6,9 +6,10 @@ import { LoginService } from './login.service';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent implements OnInit {
 
-  constructor(private loginService : LoginService) { }
+export class LoginComponent implements OnInit {
+  constructor(private loginService : LoginService){}
+  
 
   client = {
     "user": "",
@@ -21,6 +22,7 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit() {
+    document.getElementsByTagName("app-nav-bar")[0].setAttribute("style", "display:none;");
   }
 
   login(client) {
@@ -29,10 +31,10 @@ export class LoginComponent implements OnInit {
           this.auth = result;
           if(this.auth.status == 0){
             console.info("User Authenticated: ", this.auth);
+            document.getElementsByTagName("app-nav-bar")[0].setAttribute("style", "display:block;");
           }else{
             console.info("User Anauthenticated: ", this.auth);
           }
         });
     }
-
 }

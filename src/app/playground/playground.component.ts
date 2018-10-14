@@ -3,9 +3,6 @@ import { Playground } from './playground';
 import { PlaygroundService } from './playground.service';
 
 
-declare var document : any;
-declare var console : any;
-
 @Component({
   selector: 'app-playground',
   templateUrl: './playground.component.html',
@@ -18,9 +15,7 @@ export class PlaygroundComponent implements OnInit {
     visible: boolean = true;
     breakpoint: number = 768;
     
-    constructor(private playgroundService : PlaygroundService) { 
-        
-    }
+    constructor(private playgroundService : PlaygroundService) {}
 
     ngOnInit() {
       this.getPlaygrounds();
