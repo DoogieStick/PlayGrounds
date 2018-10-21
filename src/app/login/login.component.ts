@@ -1,5 +1,7 @@
+import { ModalComponent } from '../modal/modal.component';
 import { Component, OnInit } from '@angular/core';
 import { LoginService } from './login.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -8,7 +10,8 @@ import { LoginService } from './login.service';
 })
 
 export class LoginComponent implements OnInit {
-  constructor(private loginService : LoginService){}
+  constructor(private loginService : LoginService, 
+    private router : Router, private modal : ModalComponent){}
   
 
   client = {
@@ -30,10 +33,10 @@ export class LoginComponent implements OnInit {
         .then(result => {
           this.auth = result;
           if(this.auth.status == 0){
-            console.info("User Authenticated: ", this.auth);
             document.getElementsByTagName("app-nav-bar")[0].setAttribute("style", "display:block;");
+            this.router.navigateByUrl('/playgrounds');
           }else{
-            console.info("User Anauthenticated: ", this.auth);
+            this.modal.openModal("Login" , "Wrong login credentials.");
           }
         });
     }

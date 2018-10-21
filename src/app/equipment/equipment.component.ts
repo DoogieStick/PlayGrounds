@@ -20,7 +20,6 @@ export class EquipmentComponent implements OnInit {
 
   ngOnInit() {
 	  this.getEquipments();
-	  document.getElementsByTagName("app-playground")[0].style.display = "none";
 	  if(screen.width < 768){this.visible = false;}  
   }
    

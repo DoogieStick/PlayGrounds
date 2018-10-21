@@ -22,6 +22,7 @@ import { AddPlaygroundComponent } from './playground/add-playground.component';
 import { CheckListComponent } from './check-list/check-list.component';
 import { LoadingComponent } from './loading/loading.component';
 import { LoginComponent } from './login/login.component';
+import { ModalComponent } from './modal/modal.component';
 
 
 @NgModule({
@@ -35,7 +36,8 @@ import { LoginComponent } from './login/login.component';
 	AddPlaygroundComponent,
 	CheckListComponent,
 	LoadingComponent,
-	LoginComponent,
+    LoginComponent,
+    ModalComponent
   ],
   imports: [
     BrowserModule,
@@ -47,7 +49,7 @@ import { LoginComponent } from './login/login.component';
     AngularFontAwesomeModule,
     PlaygroundRoutingModule
   ],
-  providers: [PlaygroundService, EquipmentService, LoginService],
+  providers: [PlaygroundService, EquipmentService, LoginService, ModalComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
