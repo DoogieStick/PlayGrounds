@@ -18,6 +18,7 @@ import { EquipmentService } from './equipment/equipment.service';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { PlaygroundRoutingModule } from './playground/playground-routing.module';
+import { EquipmentRoutingModule } from './equipment/equipment-routing.module';
 import { AddPlaygroundComponent } from './playground/add-playground.component';
 import { CheckListComponent } from './check-list/check-list.component';
 import { LoadingComponent } from './loading/loading.component';
@@ -47,7 +48,8 @@ import { ModalComponent } from './modal/modal.component';
     AppRoutingModule,
     RouterTestingModule,
     AngularFontAwesomeModule,
-    PlaygroundRoutingModule
+    PlaygroundRoutingModule,
+    EquipmentRoutingModule
   ],
   providers: [PlaygroundService, EquipmentService, LoginService, ModalComponent],
   bootstrap: [AppComponent]
