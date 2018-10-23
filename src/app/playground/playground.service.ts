@@ -6,7 +6,7 @@ import { Http, Headers, Response, RequestOptions, Request, RequestMethod } from 
 import 'rxjs/add/operator/map';
 import { Router } from '@angular/router';
 
-declare var document : any;
+declare var document: any;
 
 @Injectable()
 export class PlaygroundService {

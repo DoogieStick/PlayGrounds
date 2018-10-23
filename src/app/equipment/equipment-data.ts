@@ -1,6 +1,6 @@
 import { Equipment } from './equipment';
 
-export const EQUIPMENTS_ON_LOAD : Equipment [] = [
+export const EQUIPMENTS_ON_LOAD: Equipment [] = [
     
        {id: 1,
         "code": "1 Flags",

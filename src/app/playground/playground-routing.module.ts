@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
+
 import { EditPlaygroundsComponent } from './edit-playgrounds.component';
 import { AddPlaygroundComponent } from './add-playground.component';
 
@@ -10,7 +11,7 @@ const routesPlaygrounds: Routes = [
 ];
 
 @NgModule({
-    imports: [RouterModule.forRoot(routesPlaygrounds,{useHash: true})],
+    imports: [RouterModule.forRoot(routesPlaygrounds, {useHash: true})],
   exports: [ RouterModule ]
 })
 export class PlaygroundRoutingModule {}
