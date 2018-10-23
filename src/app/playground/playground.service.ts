@@ -11,7 +11,7 @@ declare var document: any;
 @Injectable()
 export class PlaygroundService {
 
-      constructor(private http: Http, private router : Router) {}
+    constructor(private http: Http, private router : Router) {}
 
     public playsOnload = PLAYGROUNDS_ON_LOAD;
     private values: Array<Playground> = [];
@@ -19,6 +19,7 @@ export class PlaygroundService {
     private finished: boolean;
     public plays: any = [];
     public url = 'https://2l1kixhiw8.execute-api.sa-east-1.amazonaws.com/Playgrounds/playgrounds';
+
 
     getPlaygroundsFromData(): Promise<any> {
         document.getElementById('dim').style.display = "block";
@@ -65,7 +66,7 @@ export class PlaygroundService {
 
         return this.http.put(this.url , play, options).map(response => response.json()).subscribe(result => {
             document.getElementById('dim').style.display = "none";
-            this.router.navigate(['']);
+            this.router.navigate(['playgrounds']);
             resolve(result);
         });
       });

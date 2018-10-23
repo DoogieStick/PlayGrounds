@@ -36,8 +36,8 @@ export class EquipmentComponent implements OnInit {
         console.info("it works");    
     }
     
-    deleteEquipment(name) {
-     this.equipmentService.deleteProduct(name);
+    deleteEquipment(id) {
+     this.equipmentService.deleteEquipment(id);
     }
 	
     onResize(event) {

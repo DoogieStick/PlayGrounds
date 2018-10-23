@@ -51,11 +51,49 @@ export class EquipmentService {
             }
         }
     }
-    
-    editEquipment(equipment){
-        this.equipmentsOnload[equipment.id - 1] = equipment;
-    }	
 
- 
+    addOrEditEquipment(equipment) {
 
-}
+        document.getElementById('dim').style.display = "block";
+      
+      return new Promise((resolve, reject) => {
+
+        let options = new RequestOptions({ headers: new Headers({'Content-Type': 'application/json',
+        'x-api-key': 'qmbGnJ4yQONHUgZT2ZJn1RW4x3jshSvas24L7YKg','tableName':'Equipments','quantity': 500}) });
+
+        var play = {
+            "id":parseInt(equipment.id),
+            "code":equipment.code,
+            "description":equipment.description,
+            "selfManufactured":equipment.selfManufactured
+        };
+
+        return this.http.put(this.url , play, options).map(response => response.json()).subscribe(result => {
+            document.getElementById('dim').style.display = "none";
+            this.router.navigate(['equipment']);
+            resolve(result);
+        });
+      });
+    }
+
+
+    deleteEquipment(id) {
+        document.getElementById('dim').style.display = "block";
+        return new Promise((resolve, reject) => {
+
+        let options = new RequestOptions({ headers: new Headers({'Content-Type': 'application/json',
+        'x-api-key': 'qmbGnJ4yQONHUgZT2ZJn1RW4x3jshSvas24L7YKg','tableName':'Equipments','quantity': 500}) });
+            
+        var play = {"id":parseInt(id)};
+        
+        return this.http.post(this.url , play, options).map(response => response.json()).subscribe(result => {
+            document.getElementById('dim').style.display = "none";
+            document.location.reload();
+            resolve(result);
+        });
+      });
+    } 
+
+    }
+
+
