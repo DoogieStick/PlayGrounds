@@ -24,6 +24,7 @@ import { CheckListComponent } from './check-list/check-list.component';
 import { LoadingComponent } from './loading/loading.component';
 import { LoginComponent } from './login/login.component';
 import { ModalComponent } from './modal/modal.component';
+import { AddEquipmentComponent } from './equipment/add-equipment.component';
 
 
 @NgModule({
@@ -38,7 +39,8 @@ import { ModalComponent } from './modal/modal.component';
 	CheckListComponent,
 	LoadingComponent,
     LoginComponent,
-    ModalComponent
+    ModalComponent,
+    AddEquipmentComponent
   ],
   imports: [
     BrowserModule,

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Equipment } from './equipment';
-import { EquipmentService } from 'app/equipment/equipment.service';
+import { EquipmentService } from './equipment.service';
 
 declare var document : any;
 
@@ -14,8 +14,8 @@ export class EditEquipmentsComponent implements OnInit {
 
     id: number;
     private sub: any;
-    equipment : Equipment;
-    newEquipment : any = [];
+    equipment: Equipment;
+    newEquipment: any = [];
 
     constructor(private route: ActivatedRoute, private equipmentService : EquipmentService){}
     
@@ -33,9 +33,9 @@ export class EditEquipmentsComponent implements OnInit {
         this.newEquipment.code = document.getElementsByName("code")[0].value;
         this.newEquipment.description = document.getElementsByName("description")[0].value;
         this.newEquipment.selfManufactured = document.getElementsByName("selfManufactured")[0].value;
-        this.equipmentService.editEquipment(this.newEquipment);
+
+        this.equipmentService.addOrEditEquipment(this.newEquipment);
         this.newEquipment = [];
-        this.hideEquipment();     
      
     }
 	

@@ -12,27 +12,32 @@ declare var console : any;
 })
 export class EquipmentComponent implements OnInit {
 
-  equipments : Equipment[];
+    equipments: Equipment[];
     visible: boolean = true;
     breakpoint: number = 768;
 
-  constructor(private equipmentService : EquipmentService) { }
+  constructor(private equipmentService: EquipmentService) { }
+   
 
-  ngOnInit() {
-	  this.getEquipments();
-	  if(screen.width < 768){this.visible = false;}  
-  }
-   
-   
-    getEquipments() {
-        this.equipments = this.equipmentService.getEquipmentsFromData();
+
+    ngOnInit() {
+      this.getEquipments();
+      if(screen.width < 768){this.visible = false;}  
     }
+    
+    getEquipments() {
+        this.equipmentService.getEquipmentsFromData()
+        .then(result => {
+            this.equipments = result.Items;
+        });
+    }
+
     showAddEquipmentForm(){
         console.info("it works");    
     }
     
-    deleteEquipment(name) {
-     this.equipmentService.deleteProduct(name);
+    deleteEquipment(id) {
+     this.equipmentService.deleteEquipment(id);
     }
 	
     onResize(event) {
