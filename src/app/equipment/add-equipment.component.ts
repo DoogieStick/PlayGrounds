@@ -15,9 +15,7 @@ export class AddEquipmentComponent implements OnInit {
 
   constructor(private equipmentService : EquipmentService) { }
 
-  ngOnInit() {
-      document.getElementById("addForm").scrollIntoView();
-  }
+  ngOnInit() {}
     
     addEquipment(){
         this.newEquipment.id = document.getElementsByName("id")[0].value;
