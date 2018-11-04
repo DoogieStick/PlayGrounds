@@ -1,17 +1,19 @@
 <nav class="navbar navbar-default back-fluid">
 	<div class="container-fluid">
 		<ul>
-		  <li><a class="active" href="/">{{home}}</a></li>
+		  <li><a routerLink="/playgrounds">Playgrounds</a></li>
 		  <li><a routerLink="/equipment">Equipments</a></li>
 		  <li><a routerLink="/check-list">Checklists</a></li>
 		  <li class="dropdownNav">
 		    <a href="javascript:void(0)" class="dropbtnNav">Others</a>
 		    <div class="dropdown-content-nav">
-		      <a href="#">Link 1</a>
+		      <a routerLink="/login">Login</a>
 		      <a href="#">Link 2</a>
 		      <a href="#">Link 3</a>
 		    </div>
 		  </li>
 		</ul> 
+		<li><a class="right" routerLink="/login">Log Out</a></li>
 	</div>
 </nav>
+<br><br><br><br>

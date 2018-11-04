@@ -36,7 +36,7 @@
 						<button class="btn btn-info" [routerLink]="['edit-playground', playground.id]">
 							<i class="fa fa-edit"></i>
 						</button>
-						<button class="btn btn-danger" (click)="deletePlayground(playground.name)">
+						<button class="btn btn-danger" (click)="deletePlayground(playground.id)">
 							<i class="fa fa-minus"></i>
 						</button>
 					</td>
@@ -51,7 +51,7 @@
 				  <button class="btn btn-info" [routerLink]="['edit-playground', playground.id]">
 					<i class="fa fa-edit"></i>
 				  </button>
-				  <button class="btn btn-danger" (click)="deletePlayground(playground.name)">
+				  <button class="btn btn-danger" (click)="deletePlayground(playground.id)">
 					<i class="fa fa-minus"></i>
 				  </button>
 			  </div>

@@ -1,17 +1,18 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { CommonModule } from '@angular/common';
-import { Equipment } from './equipment';
+
 
 import { EditEquipmentsComponent } from './edit-equipments.component';
+import { AddEquipmentComponent } from './add-equipment.component';
 
 const routesEquipments: Routes = [
-  { path: 'edit-equipment/:id', component: EditEquipmentsComponent}
+  { path: 'equipment/edit-equipment/:id', component: EditEquipmentsComponent},
+  { path: 'equipment/add-equipment', component: AddEquipmentComponent}
 ];
 
 
 @NgModule({
-    imports: [ RouterModule.forRoot(routesEquipments), CommonModule ],
+  imports: [RouterModule.forRoot(routesEquipments,{useHash: true})],
   exports: [ RouterModule ]
 })
 export class EquipmentRoutingModule {}

@@ -13,7 +13,6 @@ export class CheckListComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-      document.getElementsByTagName("app-playground")[0].style.display = "none";
   }
 
 }

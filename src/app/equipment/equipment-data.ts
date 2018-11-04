@@ -1,35 +1,35 @@
 import { Equipment } from './equipment';
 
-export const EQUIPMENTS_ON_LOAD : Equipment [] = [
+export const EQUIPMENTS_ON_LOAD: Equipment [] = [
     
-       {id: 1,
+      /* {id: 1,
         "code": "1 Flags",
         "description": "Amusement Park",
-        "selfManufactured": "Sim",
+        "selfManufactured": "true",
         } ,
 		
 		{id: 2,
         "code": "2 Flags",
         "description": "Amusement Park",
-        "selfManufactured": "Sim",
+        "selfManufactured": "false",
         } ,
 		
 		{id: 3,
         "code": "3 Flags",
         "description": "Amusement Park",
-        "selfManufactured": "Sim",
+        "selfManufactured": "true",
         } ,
 
 		{id: 4,
         "code": "4 Flags",
         "description": "Amusement Park",
-        "selfManufactured": "Sim",
+        "selfManufactured": "true",
         } ,	
 
 		{id: 5,
         "code": "5 Flags",
         "description": "Amusement Park",
-        "selfManufactured": "Sim",
+        "selfManufactured": "true",
         } 		
-
+		*/
 ];

@@ -1,3 +1,4 @@
+
 <div id="editForm" class="container">
 	<div class="col-md-12">
 		<form>
@@ -5,7 +6,7 @@
 			<table>
 				<tr>
 					<th>ID:</th>
-					<th><input style="border-radius: 7px;" type="text" name="id" value={{equipment.id}}/></th>
+					<th><input style="border-radius: 7px;" type="text" name="id" value={{equipment.id}} disabled/></th>
 				</tr>
 				<tr>
 					<th>Code:</th>
@@ -17,15 +18,17 @@
 				</tr>
 				<tr>
 					<th>SelfManufactured:</th>
-					<th><input style="border-radius: 7px;" type="text" name="selfManufactured" value={{equipment.selfManufactured}}/></th>
+					<th><input style="border-radius: 7px;" type="checkbox" name="selfManufactured" /></th>
 				</tr>		
 				<tr>
+
 					<button style="margin-right: 10px;" type="button" class="btn btn-primary" (click)="editEquipment();">Submit</button>
-					<button type="button" class="btn btn-warning" (click)="hideEquipment();">Cancel</button>
+					<button type="button" class="btn btn-warning" routerLink="/equipment">Cancel</button>
+				
 				</tr>
 				<br>
 			</table>
 		</form>
 	</div>
 </div>		
-	
+
