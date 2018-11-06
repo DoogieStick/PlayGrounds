@@ -12,6 +12,8 @@ import { EquipmentComponent } from './equipment/equipment.component';
 import { EditEquipmentsComponent } from './equipment/edit-equipments.component';
 
 import { AppRoutingModule } from './app-routing.module';
+import { AuthService } from './auth.service';
+import { AuthGuard } from './auth.guard';
 import { LoginService } from './login/login.service';
 import { PlaygroundService } from './playground/playground.service';
 import { EquipmentService } from './equipment/equipment.service';
@@ -53,7 +55,7 @@ import { AddEquipmentComponent } from './equipment/add-equipment.component';
     PlaygroundRoutingModule,
     EquipmentRoutingModule
   ],
-  providers: [PlaygroundService, EquipmentService, LoginService, ModalComponent],
+  providers: [PlaygroundService, EquipmentService, LoginService, ModalComponent, AuthService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

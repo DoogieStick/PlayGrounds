@@ -23,10 +23,11 @@ export class PlaygroundComponent implements OnInit {
     }
     
     getPlaygrounds() {
+        
         this.playgroundService.getPlaygroundsFromData()
         .then(result => {
             this.playgrounds = result.Items;
-        });
+        })         
     }
     
     deletePlayground(id) {
