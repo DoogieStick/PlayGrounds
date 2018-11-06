@@ -12,6 +12,7 @@ export class EquipmentService {
     constructor(private http: Http, private router : Router) {}
 
     public equipmentsOnload = EQUIPMENTS_ON_LOAD;
+	//public equipmentsOnload = "";
 
     private values: Array<Equipment> = [];
     private anyErrors: boolean;
@@ -19,6 +20,7 @@ export class EquipmentService {
     public equipments: any = [];
     public url = 'https://2l1kixhiw8.execute-api.sa-east-1.amazonaws.com/Playgrounds/playgrounds';        
 
+	
     getEquipmentsFromData(): Promise<any> {
         document.getElementById('dim').style.display = "block";
         return new Promise((resolve, reject) => {

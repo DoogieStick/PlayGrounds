@@ -51,5 +51,9 @@ export class EditEquipmentsComponent implements OnInit {
 	   hideEquipment(){
        document.getElementById("editForm").style.display = "none";     
     }
+	
+	   goBack(){
+       window.history.back();     
+    }	
 
 }
