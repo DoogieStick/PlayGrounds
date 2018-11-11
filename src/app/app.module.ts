@@ -15,6 +15,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { LoginService } from './login/login.service';
 import { PlaygroundService } from './playground/playground.service';
 import { EquipmentService } from './equipment/equipment.service';
+import { CheckListService } from './check-list/check-list.service';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { PlaygroundRoutingModule } from './playground/playground-routing.module';
@@ -53,7 +54,7 @@ import { AddEquipmentComponent } from './equipment/add-equipment.component';
     PlaygroundRoutingModule,
     EquipmentRoutingModule
   ],
-  providers: [PlaygroundService, EquipmentService, LoginService, ModalComponent],
+  providers: [PlaygroundService, EquipmentService, CheckListService, LoginService, ModalComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

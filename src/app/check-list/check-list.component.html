@@ -15,9 +15,10 @@
 						<i class="fa fa-minus"></i>
 					  </button>
 				  </div>
-				  <br><br>
+				  <br>	
 			      <h4 class="card-title">{{checkList.id}}</h4>		      
-			      <p class="card text-center">{{checkList.nome}}</p>
+			      <p class="card text-center" input id="nome">{{checkList.nome}}</p>
+				  <input type="text" id="label" value="" type="hidden"/>
 			    </div>
 			  </div>
 			</div>
@@ -26,3 +27,13 @@
 
 	</div>
 </div>	
+
+
+<script>
+    function changeLabel() {
+        let nome = document.getElementById('nome');
+        let label = document.getElementById('label').value;
+
+        nome.innerText = label;     
+    }
+</script>
