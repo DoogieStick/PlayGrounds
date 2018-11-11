@@ -28,7 +28,7 @@ export class PlaygroundComponent implements OnInit {
         .then(result => {
             this.playgrounds = result.Items;
             console.log(result.Items[result.Count-1].id);
-        });
+        })
     } 
     
     deletePlayground(id) {
