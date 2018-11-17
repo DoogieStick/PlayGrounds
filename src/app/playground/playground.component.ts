@@ -10,7 +10,7 @@ import { PlaygroundService } from './playground.service';
 })
 export class PlaygroundComponent implements OnInit {
     
-    playgrounds : Playground[];
+    playgrounds: Playground[];
     home = 'Playgrounds';
     visible: boolean = true;
     breakpoint: number = 768;
@@ -19,21 +19,27 @@ export class PlaygroundComponent implements OnInit {
 
     ngOnInit() {
       this.getPlaygrounds();
-      if(screen.width < 768){this.visible = false;}  
+      if(screen.width < 768){this.visible = false;}
+      this.getMaxPlayground(this.playgrounds);
     }
     
     getPlaygrounds() {
-        
         this.playgroundService.getPlaygroundsFromData()
         .then(result => {
             this.playgrounds = result.Items;
-        })         
-    }
+            console.log(result.Items[result.Count-1].id);
+        })
+    } 
     
     deletePlayground(id) {
      this.playgroundService.deletePlayground(id);
     }
-    
+
+    getMaxPlayground(playgrounds2){
+      console.log(this.playgrounds);
+    }
+ 
+        
     onResize(event) {
       const w = event.target.innerWidth;
       if (w >= this.breakpoint) {

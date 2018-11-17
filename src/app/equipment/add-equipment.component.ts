@@ -15,15 +15,25 @@ export class AddEquipmentComponent implements OnInit {
 
   constructor(private equipmentService : EquipmentService) { }
 
-  ngOnInit() {}
+  ngOnInit() {
+      //document.getElementById("addForm").scrollIntoView();
+  }
     
     addEquipment(){
         this.newEquipment.id = document.getElementsByName("id")[0].value;
         this.newEquipment.code = document.getElementsByName("code")[0].value;
         this.newEquipment.description = document.getElementsByName("description")[0].value;
-        this.newEquipment.selfManufactured = document.getElementsByName("selfManufactured")[0].value;
+		
+		if (document.getElementsByName("selfManufactured")[0].checked) 
+		{
+			this.newEquipment.selfManufactured = "true"
+		}
+		else
+		{
+			this.newEquipment.selfManufactured = "false"
+		};
 
         this.equipmentService.addOrEditEquipment(this.newEquipment);
-        this.newEquipment = [];
-    }
+        this.newEquipment = []; 
+	}
 }
