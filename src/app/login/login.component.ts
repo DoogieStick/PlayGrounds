@@ -42,5 +42,5 @@ export class LoginComponent implements OnInit {
             this.modal.openModal("Login" , "Wrong login credentials.");
           }
         });
-    }
+    } 
 }
