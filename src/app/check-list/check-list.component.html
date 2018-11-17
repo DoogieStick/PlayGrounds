@@ -1,0 +1,39 @@
+<div class="container">
+	
+	<div class="row" *ngFor="let checkList of checkLists">
+	
+	
+		<div class="col-md-4">
+			<div class="container" id="">
+			  <div class="card">
+			    <div class="card-body">
+				  <div class="pull-right">
+					  <button class="btn btn-info">
+						<i class="fa fa-edit"></i>
+					  </button>
+					  <button class="btn btn-danger">
+						<i class="fa fa-minus"></i>
+					  </button>
+				  </div>
+				  <br>	
+			      <h4 class="card-title">{{checkList.id}}</h4>		      
+			      <p class="card text-center" input id="nome">{{checkList.nome}}</p>
+				  <input type="text" id="label" value="" type="hidden"/>
+			    </div>
+			  </div>
+			</div>
+			<br><br>
+		</div>
+
+	</div>
+</div>	
+
+
+<script>
+    function changeLabel() {
+        let nome = document.getElementById('nome');
+        let label = document.getElementById('label').value;
+
+        nome.innerText = label;     
+    }
+</script>

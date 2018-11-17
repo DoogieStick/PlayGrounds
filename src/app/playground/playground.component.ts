@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Playground } from './playground';
-import './playground.js';
+import { PlaygroundService } from './playground.service';
+
 
 @Component({
   selector: 'app-playground',
@@ -8,22 +9,43 @@ import './playground.js';
   styleUrls: ['./playground.component.css']
 })
 export class PlaygroundComponent implements OnInit {
-  
-    home = 'Playgrounds';    
     
-  playground : Playground = {
-    id: 1,
-    name: 'Windstorm',
-    description : 'just it',
-    address : 'some address',
-    locality : 'some location',
-    state : 'some state',
-    country : 'Colombia'
-  };  
+    playgrounds: Playground[];
+    home = 'Playgrounds';
+    visible: boolean = true;
+    breakpoint: number = 768;
     
-  constructor() { }
+    constructor(private playgroundService : PlaygroundService) {}
 
-  ngOnInit() {
-  }
+    ngOnInit() {
+      this.getPlaygrounds();
+      if(screen.width < 768){this.visible = false;}
+      this.getMaxPlayground(this.playgrounds);
+    }
+    
+    getPlaygrounds() {
+        this.playgroundService.getPlaygroundsFromData()
+        .then(result => {
+            this.playgrounds = result.Items;
+            console.log(result.Items[result.Count-1].id);
+        })
+    } 
+    
+    deletePlayground(id) {
+     this.playgroundService.deletePlayground(id);
+    }
 
+    getMaxPlayground(playgrounds2){
+      console.log(this.playgrounds);
+    }
+ 
+        
+    onResize(event) {
+      const w = event.target.innerWidth;
+      if (w >= this.breakpoint) {
+        this.visible = true;
+      } else {
+        this.visible = false;
+      }
+    }
 }
