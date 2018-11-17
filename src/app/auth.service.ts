@@ -17,10 +17,10 @@ export class AuthService {
   isLoggednIn() {
     return this.getToken() !== null;
   }
-    
-  logout() {
+  
+  logOut(){
     localStorage.removeItem("LoggedInUser");
+    localStorage.clear();
     this.router.navigateByUrl('/login');
   }
-    
 }

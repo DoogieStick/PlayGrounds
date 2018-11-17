@@ -58,3 +58,5 @@ li.dropdownNav {
 .dropdownNav:hover .dropdown-content-nav {
     display: block;
 }
+
+.pointer {cursor: pointer;}
