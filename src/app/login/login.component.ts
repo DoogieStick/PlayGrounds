@@ -12,8 +12,9 @@ import {Router} from '@angular/router';
 
 export class LoginComponent implements OnInit {
   constructor(private loginService : LoginService, 
-			private router : Router, private modal : ModalComponent,
-			private authService : AuthService){}
+
+    private router : Router, private modal : ModalComponent,
+    private authService : AuthService){}
   
 
   client = {
@@ -35,7 +36,7 @@ export class LoginComponent implements OnInit {
         .then(result => {
           this.auth = result;
           if(this.auth.status == 0){
-			 this.authService.sendToken(client.user);  
+            this.authService.sendToken(client.user);  
             document.getElementsByTagName("app-nav-bar")[0].setAttribute("style", "display:block;");
             this.router.navigateByUrl('/playgrounds');
           }else{

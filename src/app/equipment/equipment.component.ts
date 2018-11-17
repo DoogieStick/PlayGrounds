@@ -17,8 +17,7 @@ export class EquipmentComponent implements OnInit {
     breakpoint: number = 768;
 
   constructor(private equipmentService: EquipmentService) { }
-   
-
+  
     ngOnInit() {
       this.getEquipments();
       if(screen.width < 768){this.visible = false;}  
