@@ -33,7 +33,7 @@ export class EditPlaygroundsComponent implements OnInit {
         this.newPlayground.locality = document.getElementsByName("locality")[0].value;
         this.newPlayground.state = document.getElementsByName("state")[0].value;
         this.newPlayground.country = document.getElementsByName("country")[0].value;
-        this.playgroundService.addOrEditPlayground(this.newPlayground);
+        this.playgroundService.addOrEditPlayground(this.newPlayground,"edit");
         this.newPlayground = [];
     }
     
