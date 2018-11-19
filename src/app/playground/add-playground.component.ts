@@ -20,14 +20,13 @@ export class AddPlaygroundComponent implements OnInit {
   }
     
     addPlayground(){
-        this.newPlayground.id = document.getElementsByName("id")[0].value;
         this.newPlayground.name = document.getElementsByName("name")[0].value;
         this.newPlayground.description = document.getElementsByName("description")[0].value;
         this.newPlayground.address = document.getElementsByName("address")[0].value;
         this.newPlayground.locality = document.getElementsByName("locality")[0].value;
         this.newPlayground.state = document.getElementsByName("state")[0].value;
         this.newPlayground.country = document.getElementsByName("country")[0].value;
-        this.playgroundService.addOrEditPlayground(this.newPlayground);
+        this.playgroundService.addOrEditPlayground(this.newPlayground,"add");
         this.newPlayground = [];
     }
 }

@@ -2,6 +2,8 @@ import { Playground } from './playground';
 import { PLAYGROUNDS_ON_LOAD } from './playground-data';
 import { Injectable } from '@angular/core';
 import {Observable} from 'rxjs/Observable';
+import 'rxjs/add/observable/of';
+import { Subject } from 'rxjs/Rx';
 import { Http, Headers, Response, RequestOptions, Request, RequestMethod } from '@angular/http';
 import 'rxjs/add/operator/map';
 import { Router } from '@angular/router';
@@ -14,25 +16,39 @@ export class PlaygroundService {
     constructor(private http: Http, private router : Router) {}
 
     public playsOnload = PLAYGROUNDS_ON_LOAD;
+    public playsLength = 0;
     private values: Array<Playground> = [];
     private anyErrors: boolean;
     private finished: boolean;
     public plays: any = [];
     public url = 'https://2l1kixhiw8.execute-api.sa-east-1.amazonaws.com/Playgrounds/playgrounds';
+    private cache = new Map();
 
 
     getPlaygroundsFromData(): Promise<any> {
+        
         document.getElementById('dim').style.display = "block";
         return new Promise((resolve, reject) => {
-
-        let options = new RequestOptions({ headers: new Headers({'x-api-key': 'qmbGnJ4yQONHUgZT2ZJn1RW4x3jshSvas24L7YKg',
-        'tableName':'Playgrounds','quantity': 500}) });
-		return this.http.get(this.url, options)
-			   .map(response => response.json()).subscribe(result => {
-                this.playsOnload = result.Items,
+        
+        if(this.cache.get("plays")){
+            this.playsOnload = this.cache.get("plays").value;
+            this.playsLength = Math.max.apply(Math,this.playsOnload.map(function(play) { return play.id; }));
+            document.getElementById('dim').style.display = "none",
+            resolve(this.playsOnload);
+        }else{
+            let options = new RequestOptions({ headers: new Headers({'x-api-key': 'qmbGnJ4yQONHUgZT2ZJn1RW4x3jshSvas24L7YKg',
+            'tableName':'Playgrounds','quantity': 500}) });
+            
+             this.http.get(this.url, options)
+               .map(response => response.json()).subscribe(result => {
+                this.playsOnload = result.Items.sort(function (a, b) {return a.id - b.id;}),
+                this.cache.set("plays", { value: this.playsOnload, expiry: Date.now() + 300000 }),   
+                this.playsLength = Math.max.apply(Math,this.playsOnload.map(function(play) { return play.id; })),
                 document.getElementById('dim').style.display = "none",
-                resolve(result);
+                resolve(this.playsOnload);
             });
+        }    
+        
        });
 
     }
@@ -45,7 +61,7 @@ export class PlaygroundService {
         }
     }
 
-    addOrEditPlayground(playground) {
+    addOrEditPlayground(playground,method) {
 
         document.getElementById('dim').style.display = "block";
       
@@ -53,9 +69,10 @@ export class PlaygroundService {
 
         let options = new RequestOptions({ headers: new Headers({'Content-Type': 'application/json',
         'x-api-key': 'qmbGnJ4yQONHUgZT2ZJn1RW4x3jshSvas24L7YKg','tableName':'Playgrounds','quantity': 500}) });
-
+        let id = method === "add" ? this.playsLength + 1 : parseInt(playground.id); 
+          
         var play = {
-            "id":parseInt(playground.id),
+            "id":id,
             "name":playground.name,
             "description":playground.description,
             "address":playground.address,

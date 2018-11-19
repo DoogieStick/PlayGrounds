@@ -26,8 +26,7 @@ export class PlaygroundComponent implements OnInit {
     getPlaygrounds() {
         this.playgroundService.getPlaygroundsFromData()
         .then(result => {
-            this.playgrounds = result.Items;
-            console.log(result.Items[result.Count-1].id);
+            this.playgrounds = result;
         })
     } 
     
@@ -36,7 +35,7 @@ export class PlaygroundComponent implements OnInit {
     }
 
     getMaxPlayground(playgrounds2){
-      console.log(this.playgrounds);
+      //console.log(this.playgrounds);
     }
  
         
