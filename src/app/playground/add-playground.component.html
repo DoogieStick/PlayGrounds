@@ -31,6 +31,20 @@
 					<th>Country:</th>
 					<th><input style="border-radius: 7px;" type="text" name="country" value=""/></th>
 				</tr>
+				<tr>
+					<th>Equipment List:</th>
+				</tr>
+				<tr>
+					<div *ngFor="let equipment of equipments">
+						<th>
+							<label class="customcheck">
+					          <input type="checkbox" checked="checked">
+					          <span class="checkmark"></span>
+					        </label>
+							<input disabled style="border-radius: 7px;" type="text" value="{{equipment.description}}"/>								
+						</th>	
+					</div>
+				</tr>
 				<br>
 				<tr>
 					<button style="margin-right: 10px;" type="button" class="btn btn-primary" (click)="addPlayground();">Submit</button>

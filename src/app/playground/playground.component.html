@@ -26,7 +26,7 @@
 			<tbody>
 				<tr id="playground{{playground.id}}" *ngFor="let playground of playgrounds">
 					<td>{{playground.id}}</td>
-					<td>{{playground.name}}</td>
+					<td class="detail" [routerLink]="['edit-playground', playground.id]">{{playground.name}}</td>
 					<td>{{playground.description}}</td>
 					<td>{{playground.address}}</td>
 					<td>{{playground.locality}}</td>
