@@ -11,3 +11,9 @@ tr.table-top {
 	float: right; 
 	margin-top: 13px;
 }
+
+.detail{
+	text-decoration: underline;
+	color: blue;
+	cursor: pointer;
+}	
