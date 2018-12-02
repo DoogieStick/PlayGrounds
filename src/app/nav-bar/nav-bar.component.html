@@ -1,6 +1,6 @@
-<nav class="navbar navbar-default back-fluid">
+<nav class="navbar navbar-default back-fluid" [hidden]="!visible" (window:resize)="onResize($event)">
 	<div class="container-fluid">
-		<ul>
+		<ul class="ul-width">
 		  <li><a routerLink="/playgrounds">Playgrounds</a></li>
 		  <li><a routerLink="/equipment">Equipments</a></li>
 		  <li><a routerLink="/check-list">Checklists</a></li>
@@ -12,8 +12,23 @@
 		      <a href="#">Link 3</a>
 		    </div>
 		  </li>
+		  <li class="pointer"><a (click)="logOut()">Log Out</a></li>
 		</ul> 
-		<li><a class="right pointer" (click)="logOut()">Log Out</a></li>
 	</div>
 </nav>
+<div class="navbar-header nav-mobile" [hidden]="visible" (window:resize)="onResize($event)">
+	<a routerLink="/playgrounds"><img alt="plays" class="play-nav" src="../assets/images/play.jpg"></a>
+	<span class="nav-title">PLAYGROUNDS</span>
+	<span class="pointer-2" (click)="openNav()">&#9776;</span>
+</div>
+
+<div id="mySidenav" class="sidenav" [hidden]="visible" (window:resize)="onResize($event)">
+  <a href="javascript:void(0)" class="closebtn" (click)="closeNav()">&times;</a>
+  <a routerLink="/playgrounds" (click)="closeNav()">Playgrounds</a>
+  <a routerLink="/equipment" (click)="closeNav()">Equipments</a>
+  <a routerLink="/check-list" (click)="closeNav()">Checklists</a>
+  <a (click)="logOut()">Log Out</a>
+</div>
+
+
 <br><br><br><br>

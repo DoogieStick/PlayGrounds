@@ -20,7 +20,6 @@ export class PlaygroundComponent implements OnInit {
     ngOnInit() {
       this.getPlaygrounds();
       if(screen.width < 768){this.visible = false;}
-      this.getMaxPlayground(this.playgrounds);
     }
     
     getPlaygrounds() {
@@ -33,11 +32,6 @@ export class PlaygroundComponent implements OnInit {
     deletePlayground(id) {
      this.playgroundService.deletePlayground(id);
     }
-
-    getMaxPlayground(playgrounds2){
-      //console.log(this.playgrounds);
-    }
- 
         
     onResize(event) {
       const w = event.target.innerWidth;
