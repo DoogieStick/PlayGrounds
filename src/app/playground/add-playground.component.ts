@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Playground } from './playground';
 import { PlaygroundService } from 'app/playground/playground.service';
-import { Equipment } from '../equipment/equipment'; 
-import { EquipmentService } from '../equipment/equipment.service';
 
 declare var document : any;
 
@@ -15,16 +13,11 @@ export class AddPlaygroundComponent implements OnInit {
         
     playground : Playground;
     newPlayground : any = [];
-    equipments: Equipment[];
 
-  constructor(private playgroundService : PlaygroundService, private equipmentService: EquipmentService) { }
+  constructor(private playgroundService : PlaygroundService) { }
 
   ngOnInit() {
       document.getElementById("addForm").scrollIntoView();
-      this.equipmentService.getEquipmentsFromData()
-        .then(result => {
-            this.equipments = result.Items;
-        });
   }
     
     addPlayground(){
@@ -35,6 +28,7 @@ export class AddPlaygroundComponent implements OnInit {
         this.newPlayground.state = document.getElementsByName("state")[0].value;
         this.newPlayground.country = document.getElementsByName("country")[0].value;
         this.playgroundService.addOrEditPlayground(this.newPlayground,"add");
+        this.playgroundService.playsOnload.push(this.newPlayground);
         this.newPlayground = [];
     }
 }

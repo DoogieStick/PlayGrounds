@@ -4,10 +4,6 @@
 			<h2>Add Playground Information</h2>
 			<table>
 				<tr>
-					<th>ID:</th>
-					<th><input style="border-radius: 7px;" type="text" name="id" value=""/></th>
-				</tr>
-				<tr>
 					<th>Name:</th>
 					<th><input style="border-radius: 7px;" type="text" name="name" value="" /></th>
 				</tr>
@@ -31,28 +27,11 @@
 					<th>Country:</th>
 					<th><input style="border-radius: 7px;" type="text" name="country" value=""/></th>
 				</tr>
-				<tr>
-					<th>Equipment List:</th>
-				</tr>
-				<tr>
-					<div *ngFor="let equipment of equipments">
-						<th>
-							<label class="customcheck">
-					          <input type="checkbox" checked="checked">
-					          <span class="checkmark"></span>
-					        </label>
-							<input disabled style="border-radius: 7px;" type="text" value="{{equipment.description}}"/>								
-						</th>	
-					</div>
-				</tr>
-				<br>
-				<tr>
-					<button style="margin-right: 10px;" type="button" class="btn btn-primary" (click)="addPlayground();">Submit</button>
-					<button type="button" class="btn btn-warning" routerLink="/playgrounds">Cancel</button>
-				</tr>
 				<br>
 			</table>
 		</form>
+		<button style="margin-right: 10px;" type="button" class="btn btn-primary btn-xs" (click)="addPlayground();">Submit</button>
+		<button type="button" class="btn btn-warning btn-xs" routerLink="/playgrounds">Cancel</button>
 	</div>
 </div>		
 	
