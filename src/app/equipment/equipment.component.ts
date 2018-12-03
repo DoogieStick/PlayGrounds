@@ -26,7 +26,7 @@ export class EquipmentComponent implements OnInit {
     getEquipments() {
         this.equipmentService.getEquipmentsFromData()
         .then(result => {
-            this.equipments = result.Items;
+            this.equipments = result;
         });
     }
     
