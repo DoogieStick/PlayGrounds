@@ -15,11 +15,12 @@
 				  <br>	
 			      <h4 class="card-title">{{checkList.id}}</h4>		      
 			      <p class="card text-center" input id="nome">{{checkList.nome}}</p>
-			      <div *ngFor="let question of checkList.listaPergunta">
-			      	<p class="card text-center" input>{{question.Pergunta}}</p>
+			      <div *ngFor="let questionList of checkList.questionList; let i = index" [attr.data-index]="i">
+			      	<p class="card text-center" input>{{questionList.question1}}</p>
+					<td>{{i+1}}</td>
 			      </div>	
 				  <input type="text" id="label" value="" type="hidden"/>
-			    </div>
+			    </div>				
 			  </div>
 			</div>
 			<br><br>
@@ -28,12 +29,3 @@
 	</div>
 </div>	
 
-
-<script>
-    function changeLabel() {
-        let nome = document.getElementById('nome');
-        let label = document.getElementById('label').value;
-
-        nome.innerText = label;     
-    }
-</script>
