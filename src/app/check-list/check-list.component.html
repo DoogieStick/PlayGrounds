@@ -13,11 +13,11 @@
 					  </button>
 				  </div>
 				  <br>	
-			      <h4 class="card-title">{{checkList.id}}</h4>		      
+			      <h4 class="card-title">Check List {{checkList.id + 1}}</h4>		      
 			      <p class="card text-center" input id="nome">{{checkList.nome}}</p>
-			      <div *ngFor="let questionList of checkList.questionList; let i = index" [attr.data-index]="i">
-			      	<p class="card text-center" input>{{questionList.question1}}</p>
-					<td>{{i+1}}</td>
+			      <div *ngFor="let question of checkList.questionList; let i = index" [attr.data-index]="i">
+					<td>Question {{i+1}}</td>
+			      	<p class="card text-center">{{question}}</p>
 			      </div>	
 				  <input type="text" id="label" value="" type="hidden"/>
 			    </div>				

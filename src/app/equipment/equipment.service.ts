@@ -28,13 +28,10 @@ export class EquipmentService {
         
         if(this.cache.get("equipments")){
             this.equipmentsOnload = this.cache.get("equipments").value;
-			console.log(this.cache.get("equipments"));
             this.equipmentsLength = Math.max.apply(Math,this.equipmentsOnload.map(function(play) { return play.id; }));
-			console.log(this.equipmentsLength);
             document.getElementById('dim').style.display = "none",
             resolve(this.equipmentsOnload);
         }else{
-			console.log("aqui2");		
             let options = new RequestOptions({ headers: new Headers({'x-api-key': 'qmbGnJ4yQONHUgZT2ZJn1RW4x3jshSvas24L7YKg',
             'tableName':'Equipments','quantity': 500}) });
             
