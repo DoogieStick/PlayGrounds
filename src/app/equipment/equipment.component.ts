@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Equipment } from './equipment';
 import { EquipmentService } from './equipment.service';
+import { ModalComponent } from '../modal/modal.component';
+import {Router} from '@angular/router';
 
 declare var document : any;
 declare var console : any;
@@ -15,8 +17,10 @@ export class EquipmentComponent implements OnInit {
     equipments: Equipment[];
     visible: boolean = true;
     breakpoint: number = 768;
+	cancel=false;
 
-  constructor(private equipmentService: EquipmentService) { }
+  constructor(private equipmentService: EquipmentService,
+				private router : Router, private modal : ModalComponent) { }
   
     ngOnInit() {
       this.getEquipments();
@@ -31,7 +35,15 @@ export class EquipmentComponent implements OnInit {
     }
     
     deleteEquipment(id) {
-     this.equipmentService.deleteEquipment(id);
+		/*this.modal.openModalAlert("Exclusion" , "Confirm exclusion of this equipment?")
+		.then(result => {
+		this.cancel = result;
+		console.log (this.cancel);
+		if(this.cancel=true)
+			{this.equipmentService.deleteEquipment(id)};
+		}*/
+	this.modal.openModalAlert("Exclusion" , "Confirm exclusion of this equipment?");
+	//this.equipmentService.deleteEquipment(id);
     }
 	
     onResize(event) {

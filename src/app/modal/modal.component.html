@@ -8,10 +8,14 @@
       </div>
       <div class="modal-body">
         <p id="desc"></p>
-      </div>
-      <div class="modal-footer">
+      </div>	  
+      <div class="modal-footer" id="cancel">
         <button type="button" class="btn btn-default" (click)="onCloseHandled()" >Close</button>
       </div>
+      <div class="modal-footer" id="alert">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="onCloseHandled()">Close</button>
+        <button type="button" class="btn btn-primary" (click)="onCloseAlertHandled()">Save changes</button>
+      </div>	  
     </div>
   </div>
 </div>
