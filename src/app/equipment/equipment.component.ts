@@ -35,15 +35,12 @@ export class EquipmentComponent implements OnInit {
     }
     
     deleteEquipment(id) {
-		/*this.modal.openModalAlert("Exclusion" , "Confirm exclusion of this equipment?")
-		.then(result => {
-		this.cancel = result;
-		console.log (this.cancel);
-		if(this.cancel=true)
-			{this.equipmentService.deleteEquipment(id)};
-		}*/
-	this.modal.openModalAlert("Exclusion" , "Confirm exclusion of this equipment?");
-	//this.equipmentService.deleteEquipment(id);
+    	var modal = this.modal.openModalAlert("Exclusion" , "Confirm exclusion of this equipment?",this.equipmentService);
+        modal.then(function(value) {
+           if(value.cod === 1){
+             value.controller.deleteEquipment(id); 
+           }
+        });
     }
 	
     onResize(event) {
