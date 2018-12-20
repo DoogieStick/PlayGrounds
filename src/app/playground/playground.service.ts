@@ -69,7 +69,10 @@ export class PlaygroundService {
 
         let options = new RequestOptions({ headers: new Headers({'Content-Type': 'application/json',
         'x-api-key': 'qmbGnJ4yQONHUgZT2ZJn1RW4x3jshSvas24L7YKg','tableName':'Playgrounds','quantity': 500}) });
-        let id = method === "add" ? this.playsLength + 1 : parseInt(playground.id); 
+        let id = method === "add" ? Number(this.playsLength) + 1 : parseInt(playground.id); 
+        if (id == Number.POSITIVE_INFINITY || id == Number.NEGATIVE_INFINITY){
+            id=1;
+        }
           
         var play = {
             "id":id,
@@ -97,6 +100,7 @@ export class PlaygroundService {
         'x-api-key': 'qmbGnJ4yQONHUgZT2ZJn1RW4x3jshSvas24L7YKg','tableName':'Playgrounds','quantity': 500}) });
             
         var play = {"id":parseInt(id)};
+        console.log(play);
         
         return this.http.post(this.url , play, options).map(response => response.json()).subscribe(result => {
             document.getElementById('dim').style.display = "none";
