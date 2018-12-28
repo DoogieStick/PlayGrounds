@@ -21,14 +21,14 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr *ngFor="let equipment of equipments">
+				<tr *ngFor="let equipment of equipments; let i = index" [attr.data-index]="i">
 					<td>{{equipment.id}}</td>
 					<td>{{equipment.code}}</td>
 					<td>{{equipment.description}}</td>
 					<td>{{equipment.selfManufactured}}</td>
 					<td>
-				<button class="btn btn-info" [routerLink]="['edit-equipment', equipment.id]">
-					<i class="fa fa-edit"></i>
+					<button class="btn btn-info" [routerLink]="['edit-equipment', equipment.id]">
+						<i class="fa fa-edit"></i>
 				  </button>
 						<button class="btn btn-danger" (click)="deleteEquipment(equipment.id)">
 							<i class="fa fa-minus"></i>

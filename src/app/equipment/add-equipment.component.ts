@@ -20,7 +20,6 @@ export class AddEquipmentComponent implements OnInit {
   }
     
     addEquipment(){
-        this.newEquipment.id = document.getElementsByName("id")[0].value;
         this.newEquipment.code = document.getElementsByName("code")[0].value;
         this.newEquipment.description = document.getElementsByName("description")[0].value;
 		
@@ -33,7 +32,7 @@ export class AddEquipmentComponent implements OnInit {
 			this.newEquipment.selfManufactured = "false"
 		};
 
-        this.equipmentService.addOrEditEquipment(this.newEquipment);
+        this.equipmentService.addOrEditEquipment(this.newEquipment,"add");
         this.newEquipment = []; 
 	}
 }
