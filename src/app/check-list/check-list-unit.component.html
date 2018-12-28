@@ -1,0 +1,29 @@
+<div class="container">
+<div class="row">
+		<div class="col-md-12">
+        <h1 class="table-top">Edit {{checkList.name}} CheckList Data</h1>			
+      </div>
+    <tbody>
+
+      </tbody>
+
+  <div class="col-md-12 table-responsive" (window:resize)="onResize($event)">	
+  <table class="table table-bordered table-striped table-hover">
+
+    <td></td>
+    <thead>
+      <tr>
+        <th class="text-center">Question</th>
+        <th class="text-center">&nbsp;</th>
+        <li class="check-list" *ngFor="let question of checkList.questionList; let i = index" [attr.data-index]="i">
+            <a class="check-list">
+            <span>Question {{i+1}}</span> {{question}}			
+            </a>
+              </li>	
+      </tr>
+    </thead>
+    
+  </table>
+  </div>
+</div>
+</div>
