@@ -1,8 +1,12 @@
 <div id="editForm" class="container">
 	<div class="col-md-12">
 		<form>
-			<h2>Edit Playground Information</h2>
+			<h2>Edit Playground Data</h2>
 			<table>
+				<tr>
+					<th>ID:</th>
+					<th><input style="border-radius: 7px;" type="text" disabled name="id" value={{playground.id}} /></th>
+				</tr>				
 				<tr>
 					<th>Name:</th>
 					<th><input style="border-radius: 7px;" type="text" name="name" value={{playground.name}} /></th>

@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Playground } from './playground';
 import { PlaygroundService } from './playground.service';
-
+import { ModalComponent } from '../modal/modal.component';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-playground',
@@ -15,7 +16,8 @@ export class PlaygroundComponent implements OnInit {
     visible: boolean = true;
     breakpoint: number = 768;
     
-    constructor(private playgroundService : PlaygroundService) {}
+    constructor(private playgroundService : PlaygroundService,
+                        private router : Router, private modal : ModalComponent) {}
 
     ngOnInit() {
       this.getPlaygrounds();
@@ -30,7 +32,12 @@ export class PlaygroundComponent implements OnInit {
     } 
     
     deletePlayground(id) {
-     this.playgroundService.deletePlayground(id);
+    	var modal = this.modal.openModalAlert("Exclusion" , "Confirm exclusion of this playground?",this.playgroundService);
+        modal.then(function(value) {
+           if(value.cod === 1){
+            value.controller.deletePlayground(id);
+           }
+        });
     }
         
     onResize(event) {

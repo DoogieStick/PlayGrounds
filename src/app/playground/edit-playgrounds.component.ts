@@ -40,7 +40,7 @@ export class EditPlaygroundsComponent implements OnInit {
     focusOnPlayground(){
         
         if(screen.width < 768){
-            var element = document.getElementById("Mplayground"+this.id);
+            var element = document.getElementById("playground"+this.id);
         }else{
             var element = document.getElementById("playground"+this.id);
         }
