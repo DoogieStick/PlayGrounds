@@ -13,14 +13,8 @@
 					  </button>
 				  </div>
 				  <br>	
-			      <h4 class="card-title">Check List {{checkList.id}}</h4>
-					<p class="card text-center" input id="nome">{{i+1}}</p>				  
-			      <p class="card text-center" input id="nome">{{checkList.nome}}</p>
-			      <li class="check-list" *ngFor="let question of checkList.questionList; let i = index" [attr.data-index]="i">
-					<a class="check-list">
-					<span>Question {{i+1}}</span> {{question}}			
-					</a>
-			      </li>					  
+			      <h4 class="card-title">Check List {{i+1}}</h4>		  
+			      <p class="card text-center" [routerLink]="['check-list-unit', checkList.id]" input id="nome">{{checkList.name}} </p>				  
 			    </div>				
 			  </div>
 			</div>
