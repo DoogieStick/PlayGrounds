@@ -43,7 +43,7 @@ export class PlaygroundService {
                .map(response => response.json()).subscribe(result => {
                 this.playsOnload = result.Items.sort(function (a, b) {return a.id - b.id;}),
                 this.cache.set("plays", { value: this.playsOnload, expiry: Date.now() + 300000 }),   
-                this.playsLength = Math.max.apply(Math,this.playsOnload.map(function(play) { return play.id; })),
+                this.playsLength = this.playsOnload.length != 0 ? Math.max.apply(Math,this.playsOnload.map(function(play) { return play.id; })) : 0,
                 document.getElementById('dim').style.display = "none",
                 resolve(this.playsOnload);
             });
@@ -69,7 +69,7 @@ export class PlaygroundService {
 
         let options = new RequestOptions({ headers: new Headers({'Content-Type': 'application/json',
         'x-api-key': 'qmbGnJ4yQONHUgZT2ZJn1RW4x3jshSvas24L7YKg','tableName':'Playgrounds','quantity': 500}) });
-        let id = method === "add" ? this.playsLength + 1 : parseInt(playground.id); 
+        let id = method === "add" ? Number(this.playsLength) + 1 : parseInt(playground.id); 
           
         var play = {
             "id":id,

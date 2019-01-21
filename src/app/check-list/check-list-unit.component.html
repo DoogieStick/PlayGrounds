@@ -1,0 +1,40 @@
+<div class="container">
+<div class="row">
+		<div class="col-md-12">
+        <h1 class="table-top">Edit {{checkList.name}} CheckList</h1>     	
+      </div>
+    <tbody>
+
+      </tbody>
+
+  <div class="col-md-12 table-responsive" (window:resize)="onResize($event)">	
+  <table class="table table-bordered table-striped table-hover">
+
+    <td></td>
+    <thead>
+      <tr>
+        <th class="text-left">Question nr</th>
+        <th class="text-left">Question</th>
+        <th class="text-left"><button class="btn btn-success table-top-button"><i class="fa fa-plus"></i></button>   </th>
+      </tr>
+      </thead>
+      <tbody>
+        <tr class="check-list" *ngFor="let question of checkList.questionList; let i = index" [attr.data-index]="i">
+            <td class="check-list"><span>Question {{i+1}}</span></td>
+            <td>{{question}}</td>
+            <td>
+              <button class="btn btn-info">
+                <i class="fa fa-edit"></i>
+              </button>
+                <button class="btn btn-danger" >
+                  <i class="fa fa-minus"></i>
+                </button>
+              </td>
+          </tr>	
+      </tbody>
+
+    
+  </table>
+  </div>
+</div>
+</div>

@@ -1,7 +1,9 @@
-import { Injectable } from '@angular/core';
 import { CheckList } from './check-list';
 import { CHECKLISTS_ON_LOAD } from './check-list-data';
+import { Injectable } from '@angular/core';
 import {Observable} from 'rxjs/Observable';
+import 'rxjs/add/observable/of';
+import { Subject } from 'rxjs/Rx';
 import { Http, Headers, Response, RequestOptions, Request, RequestMethod } from '@angular/http';
 import 'rxjs/add/operator/map';
 import { Router } from '@angular/router';
@@ -17,7 +19,7 @@ export class CheckListService {
     private finished: boolean;
     public checkLists: any = [];
 	
-	public checkListsOnload="";
+	public checkListsOnload= CHECKLISTS_ON_LOAD;
     public url = 'https://2l1kixhiw8.execute-api.sa-east-1.amazonaws.com/Playgrounds/playgrounds';       
 
 	
@@ -36,6 +38,14 @@ export class CheckListService {
        });
 
     } 
+
+    getCheckListToEdit(id) {
+        for (const entry of this.checkListsOnload) {
+            if (id === entry.id) {
+                return entry;
+            }
+        }
+    }    
 
 	
 }

@@ -1,5 +1,5 @@
 export interface CheckList {
     id: number;
-    nome: string;
-    listaPergunta: string;
+    name: string;
+    questionList: object;
 }

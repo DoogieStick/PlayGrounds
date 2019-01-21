@@ -43,7 +43,7 @@ export class EditEquipmentsComponent implements OnInit {
 			this.newEquipment.selfManufactured = "false"
 		};		
 
-        this.equipmentService.addOrEditEquipment(this.newEquipment);
+        this.equipmentService.addOrEditEquipment(this.newEquipment,"edit");
         this.newEquipment = [];
      
     }

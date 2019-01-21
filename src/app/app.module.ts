@@ -22,8 +22,10 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { PlaygroundRoutingModule } from './playground/playground-routing.module';
 import { EquipmentRoutingModule } from './equipment/equipment-routing.module';
+import { CheckListRoutingModule } from './check-list/check-list-routing.module';
 import { AddPlaygroundComponent } from './playground/add-playground.component';
 import { CheckListComponent } from './check-list/check-list.component';
+import { CheckListUnitComponent } from './check-list/check-list-unit.component';
 import { LoadingComponent } from './loading/loading.component';
 import { LoginComponent } from './login/login.component';
 import { ModalComponent } from './modal/modal.component';
@@ -36,14 +38,15 @@ import { AddEquipmentComponent } from './equipment/add-equipment.component';
     NavBarComponent,
     PlaygroundComponent,
     EditPlaygroundsComponent,
-	EquipmentComponent,
-	EditEquipmentsComponent,
-	AddPlaygroundComponent,
-	CheckListComponent,
-	LoadingComponent,
+    EquipmentComponent,
+    EditEquipmentsComponent,
+    AddPlaygroundComponent,
+    CheckListComponent,
+    LoadingComponent,
     LoginComponent,
     ModalComponent,
-    AddEquipmentComponent
+    AddEquipmentComponent,
+    CheckListUnitComponent
   ],
   imports: [
     BrowserModule,
@@ -54,7 +57,8 @@ import { AddEquipmentComponent } from './equipment/add-equipment.component';
     RouterTestingModule,
     AngularFontAwesomeModule,
     PlaygroundRoutingModule,
-    EquipmentRoutingModule
+    EquipmentRoutingModule,
+    CheckListRoutingModule
   ],
   providers: [PlaygroundService, EquipmentService, CheckListService, LoginService, ModalComponent, AuthService, AuthGuard],
   bootstrap: [AppComponent]
