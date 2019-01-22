@@ -30,6 +30,7 @@ import { LoadingComponent } from './loading/loading.component';
 import { LoginComponent } from './login/login.component';
 import { ModalComponent } from './modal/modal.component';
 import { AddEquipmentComponent } from './equipment/add-equipment.component';
+import { PlaygroundDetailComponent } from './playground/playground-detail.component';
 
 
 @NgModule({
@@ -46,7 +47,8 @@ import { AddEquipmentComponent } from './equipment/add-equipment.component';
     LoginComponent,
     ModalComponent,
     AddEquipmentComponent,
-    CheckListUnitComponent
+    CheckListUnitComponent,
+    PlaygroundDetailComponent
   ],
   imports: [
     BrowserModule,
