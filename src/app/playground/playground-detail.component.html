@@ -1,51 +1,58 @@
-<div class="sidebar">
-  <a href="#home"><i class="fa fa-fw fa-home"></i> Home</a>
-  <a href="#services"><i class="fa fa-fw fa-wrench"></i> Services</a>
-  <a href="#clients"><i class="fa fa-fw fa-user"></i> Clients</a>
-  <a href="#contact"><i class="fa fa-fw fa-envelope"></i> Contact</a>
-</div>
-
-<div class="main">
-  <div id="editForm" class="container">
-	<div class="col-md-12">
-		<form>
-			<h2>Edit Playground Data</h2>
-			<table>
-				<tr>
-					<th>ID:</th>
-					<th><input style="border-radius: 7px;" type="text" disabled name="id" value={{playground.id}} /></th>
-				</tr>				
-				<tr>
-					<th>Name:</th>
-					<th><input style="border-radius: 7px;" type="text" name="name" value={{playground.name}} /></th>
-				</tr>
-				<tr>
-					<th>Description:</th>
-					<th><input style="border-radius: 7px;" type="text" name="description" value={{playground.description}}/></th>
-				</tr>
-				<tr>
-					<th>Address:</th>
-					<th><input style="border-radius: 7px;" type="text" name="address" value={{playground.address}}/></th>
-				</tr>
-				<tr>
-					<th>Locality:</th>
-					<th><input style="border-radius: 7px;" type="text" name="locality" value={{playground.locality}}/></th>
-				</tr>
-				<tr>
-					<th>State:</th>
-					<th><input style="border-radius: 7px;" type="text" name="state" value={{playground.state}}/></th>
-				</tr>
-				<tr>
-					<th>Country:</th>
-					<th><input style="border-radius: 7px;" type="text" name="country" value={{playground.country}}/></th>
-				</tr>
-				<br>
-				<br>
-			</table>
-		</form>
-		<button style="margin-right: 10px;" type="button" class="btn btn-primary" (click)="editPlayground();">Submit</button>
-		<button type="button" class="btn btn-warning" routerLink="/playgrounds">Cancel</button>
+<div class="container">
+	<div id="content">
+	  <div id="main-content">
+		<mat-tab-group>
+		  <mat-tab label="{{playground.name}}">
+			<div id="editForm" class="container">
+				<div class="col-md-12">
+					<form>
+						<h2>Playground Data</h2>
+						<table>
+							<tr>
+								<th>ID:</th>
+								<th><input style="border-radius: 7px;" type="text" disabled name="id" value={{playground.id}} /></th>
+							</tr>				
+							<tr>
+								<th>Name:</th>
+								<th><input style="border-radius: 7px;" type="text" name="name" value={{playground.name}} /></th>
+							</tr>
+							<tr>
+								<th>Description:</th>
+								<th><input style="border-radius: 7px;" type="text" name="description" value={{playground.description}}/></th>
+							</tr>
+							<tr>
+								<th>Address:</th>
+								<th><input style="border-radius: 7px;" type="text" name="address" value={{playground.address}}/></th>
+							</tr>
+							<tr>
+								<th>Locality:</th>
+								<th><input style="border-radius: 7px;" type="text" name="locality" value={{playground.locality}}/></th>
+							</tr>
+							<tr>
+								<th>State:</th>
+								<th><input style="border-radius: 7px;" type="text" name="state" value={{playground.state}}/></th>
+							</tr>
+							<tr>
+								<th>Country:</th>
+								<th><input style="border-radius: 7px;" type="text" name="country" value={{playground.country}}/></th>
+							</tr>
+							<br>
+							<br>
+						</table>
+					</form>
+					<button style="margin-right: 10px;" type="button" class="btn btn-primary" (click)="editPlayground();">Submit</button>
+					<button type="button" class="btn btn-warning" routerLink="/playgrounds">Cancel</button>
+				</div>
+			</div>		
+				
+		  </mat-tab>
+		  <mat-tab label="Equipments">
+			Tab Two Content
+		  </mat-tab>
+		  <mat-tab label="Inspections">
+			Tab Two Content
+		  </mat-tab>
+		</mat-tab-group>
+	  </div>
 	</div>
-</div>		
-	
-</div>
+  </div>

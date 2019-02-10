@@ -1,6 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { MatTabsModule } from '@angular/material';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpModule } from '@angular/http';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -53,6 +55,8 @@ import { PlaygroundDetailComponent } from './playground/playground-detail.compon
   imports: [
     BrowserModule,
     FormsModule,
+    MatTabsModule,
+    BrowserAnimationsModule,
     HttpModule,
     HttpClientModule,
     AppRoutingModule,
