@@ -1,7 +1,7 @@
 <div class="container">
 	<div id="content">
 	  <div id="main-content">
-		<mat-tab-group>
+		<mat-tab-group (selectChange)='onSelectChange($event)'>
 		  <mat-tab label="{{playground.name}}">
 			<div id="editForm" class="container">
 				<div class="col-md-12">
@@ -47,7 +47,25 @@
 				
 		  </mat-tab>
 		  <mat-tab label="Equipments">
-			Tab Two Content
+				<div class="container" *ngFor="let equipment of equipments; let i = index" [attr.data-index]="i" [hidden]="visible" (window:resize)="onResize($event)">
+					<div class="card">
+						<div class="card-body">
+						<div class="pull-right">
+							<button class="btn btn-info" [routerLink]="['edit-equipment', equipment.id]">
+							<i class="fa fa-edit"></i>
+							</button>
+							<button class="btn btn-danger" (click)="deleteEquipment(equipment.id)">
+							<i class="fa fa-minus"></i>
+							</button>
+						</div>
+						<br><br>
+							<h4 class="card-title">{{equipment.id}}</h4>		      
+							<p class="card text-center">{{equipment.code}}</p>
+							<p class="card text-center">{{equipment.description}}</p>
+							<p class="card text-center">{{equipment.selfManufactured}}</p>
+						</div>
+					</div>
+				</div>
 		  </mat-tab>
 		  <mat-tab label="Inspections">
 			Tab Two Content
