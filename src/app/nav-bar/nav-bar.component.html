@@ -1,4 +1,4 @@
-<nav class="navbar navbar-default back-fluid" [hidden]="!visible" (window:resize)="onResize($event)">
+<nav class="navbar navbar-default back-fluid paddingBar" [hidden]="!visible" (window:resize)="onResize($event)">
 	<div class="container-fluid">
 		<ul class="ul-width">
 		  <li><a routerLink="/playgrounds">Playgrounds</a></li>
@@ -16,7 +16,7 @@
 		</ul> 
 	</div>
 </nav>
-<div class="navbar-header nav-mobile" [hidden]="visible" (window:resize)="onResize($event)">
+<div class="navbar-header nav-mobile paddingBar" [hidden]="visible" (window:resize)="onResize($event)">
 	<a routerLink="/playgrounds"><img alt="plays" class="play-nav" src="./assets/images/play.jpg"></a>
 	<span class="nav-title">PLAYGROUNDS</span>
 	<span class="pointer-2" (click)="openNav()">&#9776;</span>
@@ -29,6 +29,3 @@
   <a routerLink="/check-list" (click)="closeNav()">Checklists</a>
   <a (click)="logOut()">Log Out</a>
 </div>
-
-
-<br><br><br><br>
