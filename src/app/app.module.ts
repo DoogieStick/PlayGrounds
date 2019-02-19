@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MatTabsModule } from '@angular/material';
+import {MatIconModule} from '@angular/material/icon';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpModule } from '@angular/http';
 import { HttpClientModule } from '@angular/common/http';
@@ -56,6 +57,7 @@ import { PlaygroundDetailComponent } from './playground/playground-detail.compon
     BrowserModule,
     FormsModule,
     MatTabsModule,
+    MatIconModule,
     BrowserAnimationsModule,
     HttpModule,
     HttpClientModule,
@@ -69,4 +71,4 @@ import { PlaygroundDetailComponent } from './playground/playground-detail.compon
   providers: [PlaygroundService, EquipmentService, CheckListService, LoginService, ModalComponent, AuthService, AuthGuard],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

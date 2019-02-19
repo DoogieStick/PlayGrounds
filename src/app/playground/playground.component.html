@@ -33,7 +33,7 @@
 					<td>{{playground.state}}</td>
 					<td>{{playground.country}}</td>
 					<td>
-						<button class="btn btn-info" [routerLink]="['edit-playground', playground.id]">
+						<button class="btn btn-info" [routerLink]="['playground-detail', playground.id]">
 							<i class="fa fa-edit"></i>
 						</button>
 						<button class="btn btn-danger" (click)="deletePlayground(playground.id)">
@@ -48,7 +48,7 @@
 		  <div class="card">
 		    <div class="card-body">
 			  <div class="pull-right">
-				  <button class="btn btn-info" [routerLink]="['edit-playground', playground.id]">
+				  <button class="btn btn-info" [routerLink]="['playground-detail', playground.id]">
 					<i class="fa fa-edit"></i>
 				  </button>
 				  <button class="btn btn-danger" (click)="deletePlayground(playground.id)">

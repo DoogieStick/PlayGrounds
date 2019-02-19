@@ -74,6 +74,7 @@ export class PlaygroundService {
         var play = {
             "id":id,
             "name":playground.name,
+            "equipments":playground.equipments !== undefined ? playground.equipments : [],
             "description":playground.description,
             "address":playground.address,
             "country":playground.country,
@@ -81,8 +82,11 @@ export class PlaygroundService {
             "locality":playground.locality
         };
 
+        console.info("dynamo",play)
+
         return this.http.put(this.url , play, options).map(response => response.json()).subscribe(result => {
             document.getElementById('dim').style.display = "none";
+            document.location.reload();
             this.router.navigate(['playgrounds']);
             resolve(result);
         });

@@ -28,6 +28,7 @@ export class PlaygroundComponent implements OnInit {
         this.playgroundService.getPlaygroundsFromData()
         .then(result => {
             this.playgrounds = result;
+            console.info("plays on load ",this.playgrounds)
         })
     } 
     
