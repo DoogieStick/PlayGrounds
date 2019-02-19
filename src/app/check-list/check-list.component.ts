@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router'
 import { CheckList } from './check-list';
 import { CheckListService } from './check-list.service';
+import { ModalComponent } from '../modal/modal.component';
 
 declare var document : any;
 declare var console : any;
@@ -20,7 +21,8 @@ export class CheckListComponent implements OnInit {
 	breakpoint: number = 768;
 
 
- constructor(private checkListService: CheckListService) { }  
+ constructor(private checkListService: CheckListService
+							, private modal : ModalComponent) { }  
 
  
 	  ngOnInit() {
@@ -44,6 +46,15 @@ export class CheckListComponent implements OnInit {
       } else {
         this.visible = false;
       }
-    }	
+		}	
+		
+    deleteCheckList(id) {
+    	var modal = this.modal.openModalAlert("Exclusion" , "Confirm exclusion of this checkList?",this.checkListService);
+        modal.then(function(value) {
+           if(value.cod === 1){
+            value.controller.deleteCheckList(id);
+           }
+        });
+    }		
   
 }

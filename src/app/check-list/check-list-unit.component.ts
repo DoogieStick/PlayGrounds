@@ -27,4 +27,15 @@ export class CheckListUnitComponent implements OnInit {
   }
 
 
+  editCheckList(id){
+    this.newCheckList.name = document.getElementsByName("name")[0].value;
+    this.newCheckList.id = id;
+    this.newCheckList.questionList = this.checkList.questionList;
+    console.info( "here",this.newCheckList,this.checkList)
+    this.checkListService.addOrEditCheckList(this.newCheckList,"edit");
+    this.newCheckList = [];
+ 
+  }
+
+
 }
