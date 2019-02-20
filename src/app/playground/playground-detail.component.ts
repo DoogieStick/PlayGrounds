@@ -6,8 +6,13 @@ import { Equipment } from '../equipment/equipment';
 import { EquipmentService } from '../equipment/equipment.service';
 import {DomSanitizer} from '@angular/platform-browser';
 import {MatIconRegistry} from '@angular/material';
+import { from } from 'rxjs/observable/from';
+import { groupBy, mergeMap, toArray } from 'rxjs/operators';
+
+
 
 declare var document : any;
+
 
 @Component({
   selector: 'app-playground-detail',
@@ -20,6 +25,7 @@ export class PlaygroundDetailComponent implements OnInit {
     private sub: any;
     playground: Playground;
     equipments: Equipment[];
+    testEquipments: Equipment[];
     newPlayground : any = [];
 
     constructor(private route: ActivatedRoute,
@@ -40,15 +46,14 @@ export class PlaygroundDetailComponent implements OnInit {
   }
 
   countItemsByEquipment(play){
-    Array.prototype.groupBy = function(prop) {
-      return this.reduce(function(groups, item) {
-        const val = item[prop]
-        groups[val] = groups[val] || []
-        groups[val].push(item)
-        return groups
-      }, {})
-    }
-    var groupedPlays = play.equipments.groupBy("id");
+    this.testEquipments = play.equipments;
+    console.info("equip " , this.testEquipments);
+    const source = from(this.testEquipments);
+    const example = source.pipe(
+      groupBy(person => person.id),
+      mergeMap(group => group.pipe(toArray()))
+    );
+    const subscribe = example.subscribe(val => console.info("final arrays" , val));
   }
 
   editPlayground(){
