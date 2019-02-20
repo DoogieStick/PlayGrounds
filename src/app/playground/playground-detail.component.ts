@@ -42,12 +42,10 @@ export class PlaygroundDetailComponent implements OnInit {
          this.id = +params['id'];
          this.playground = this.playgroundService.getPlaygroundToEdit(this.id);
       });
-      this.countItemsByEquipment(this.playground)
   }
 
   countItemsByEquipment(play){
-    this.testEquipments = play.equipments;
-    console.info("equip " , this.testEquipments);
+    this.testEquipments = play.equipments != undefined ? play.equipments : [];
     const source = from(this.testEquipments);
     const example = source.pipe(
       groupBy(person => person.id),
@@ -78,6 +76,7 @@ export class PlaygroundDetailComponent implements OnInit {
     this.equipmentService.getEquipmentsFromData()
     .then(result => {
         this.equipments = result;
+        this.countItemsByEquipment(this.playground)
     });
   }
 
