@@ -102,7 +102,9 @@ export class PlaygroundService {
             
         var play = {"id":parseInt(id)};
         
-        return this.http.post(this.url , play, options).map(response => response.json()).subscribe(result => {
+        return this.http.post(this.url , play, options).map(response => response.json())
+        .subscribe(result => {
+            console.info("result ",result)
             document.getElementById('dim').style.display = "none";
             document.location.reload();
             resolve(result);

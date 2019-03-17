@@ -49,28 +49,22 @@
         <mat-tab label="Equipments">
           <div class="container">
             <div class="row">
-              <div class="col-md-4" *ngFor="let equipment of equipments; let i = index" [attr.data-index]="i">
+              <div class="col-md-4" *ngFor="let equipment of finalEquipments; let i = index" [attr.data-index]="i">
                 <div class="container">
                   <div class="card">
-										2
-										<mat-icon svgIcon="thumbs-up"></mat-icon>
+										<div><mat-icon svgIcon="thumbs-up"></mat-icon> X {{equipment.equipLength}}</div>
                     <div class="card-body">
                       <div class="pull-right">
                         <button class="btn btn-success table-top-button" (click)="addEquipmentToPark(equipment.id)">
                           <i class="fa fa-plus"></i>
                         </button>
-                        <button class="btn btn-info" [routerLink]="['edit-equipment', equipment.id]">
-                          <i class="fa fa-edit"></i>
-                        </button>
-                        <button class="btn btn-danger" (click)="deleteEquipment(equipment.id)">
+                        <button class="btn btn-danger" (click)="deleteEquipmentFromPark(equipment.id)">
                           <i class="fa fa-minus"></i>
                         </button>
                       </div>
                       <br><br>
-											<h4 class="card-title">{{equipment.id}}</h4>
-                      <p class="card text-center">{{equipment.code}}</p>
+											<h4 class="card-title">{{equipment.code}}</h4>
                       <p class="card text-center">{{equipment.description}}</p>
-                      <p class="card text-center">{{equipment.selfManufactured}}</p>
                     </div>
                   </div>
                 </div>
