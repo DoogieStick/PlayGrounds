@@ -7,8 +7,7 @@
         <br />
         <tr allign="center">
           <th>Nome:</th>
-          <th><input style="border-radius: 7px;" type="text" name="name" value={{checkList.name}} /></th>
-          <button style="margin-right: 10px;" type="button" class="btn btn-primary" (click)="editCheckList(checkList.id)">Submit</button> 
+          <th><input style="border-radius: 7px;" type="text" name="name" value={{checkList.name}} /></th>          
         </tr>
         <br />
         <br />
@@ -22,16 +21,15 @@
           <tr>
             <th class="text-left">Question nr</th>
             <th class="text-left">Question</th>
-            <th class="text-left"><button class="btn btn-success table-top-button"><i class="fa fa-plus"></i></button>
-            </th>
           </tr>
         </thead>
         <tbody>
           <tr class="check-list" *ngFor="let question of checkList.questionList; let i = index" [attr.data-index]="i">
-            <td class="check-list"><span>Question {{i+1}}</span></td>
-            <td>{{question}}</td>
+            <td class="check-list"><span>{{question.id}}</span></td>
+            <td *ngIf="editQuestions==false">{{question.question}}</td>
+            <td *ngIf="editQuestions==true"><input size="60" value="{{question.question}}"></td>
             <td>
-              <button class="btn btn-info">
+              <button class="btn btn-info" (click)="editCheckListQuestions()">             
                 <i class="fa fa-edit"></i>
               </button>
               <button class="btn btn-danger">
@@ -39,6 +37,20 @@
               </button>
             </td>
           </tr>
+
+          <br><br/>
+          <br><br/>
+
+          <tr>
+            <th class="text-left">New Question</th>
+            <th class="text-left"><input size="60"  value=""></th>
+            <th class="text-left"><button class="btn btn-success table-top-button"><i class="fa fa-plus"></i></button>
+            </th>
+          </tr>  
+          
+          <br><br/>
+          <br><br/>
+          <button style="margin-right: 10px;" type="button" class="btn btn-primary" >Submit</button> 
         </tbody>
 
       </table>
