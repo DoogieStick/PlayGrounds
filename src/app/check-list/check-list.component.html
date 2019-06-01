@@ -1,5 +1,13 @@
 <div class="container">
 	<div class="row">
+			<div class="col-md-12">
+					<h1 class="table-top">CheckLists &nbsp; 
+					<button class="btn btn-success table-top-button"
+						[routerLink]="['add-equipment']">				
+						<i class="fa fa-plus"></i>
+					</button>
+				</h1>
+				</div>		
 		<div class="col-md-4" *ngFor="let checkList of checkLists;  let i = index" [attr.data-index]="i">
 			<div class="container" id="">
 			  <div class="card">
@@ -8,12 +16,12 @@
 					  <button class="btn btn-info" [routerLink]="['check-list-unit', checkList.id]">
 						<i class="fa fa-edit"></i>
 					  </button>
-					  <button class="btn btn-danger">
+					  <button class="btn btn-danger" (click)="deleteCheckList(checkList.id)">
 						<i class="fa fa-minus"></i>
 					  </button>
 				  </div>
 				  <br>	
-			      <h4 class="card-title">Check List {{i+1}}</h4>		  
+			      <h3 class="card-title">Check List</h3>		  
 			      <p class="card text-center" [routerLink]="['check-list-unit', checkList.id]" input id="nome">{{checkList.name}} </p>				  
 			    </div>				
 			  </div>
