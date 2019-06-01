@@ -27,6 +27,7 @@ export class PlaygroundDetailComponent implements OnInit {
     equipments: Equipment[];
     testEquipments: Equipment[];
     newPlayground : any = [];
+    finalEquipments : Equipment[];
 
     constructor(private route: ActivatedRoute,
       private playgroundService: PlaygroundService,
@@ -35,6 +36,7 @@ export class PlaygroundDetailComponent implements OnInit {
       private sanitizer: DomSanitizer) {}
 
   ngOnInit() {
+    this.finalEquipments = [];
     this.iconRegistry.addSvgIcon(
       'thumbs-up',
       this.sanitizer.bypassSecurityTrustResourceUrl('assets/images/kart.svg'));
@@ -45,13 +47,17 @@ export class PlaygroundDetailComponent implements OnInit {
   }
 
   countItemsByEquipment(play){
+    this.finalEquipments = [];
     this.testEquipments = play.equipments != undefined ? play.equipments : [];
     const source = from(this.testEquipments);
-    const example = source.pipe(
+    const groupEquipments = source.pipe(
       groupBy(person => person.id),
       mergeMap(group => group.pipe(toArray()))
     );
-    const subscribe = example.subscribe(val => console.info("final arrays" , val));
+    const subscribe = groupEquipments.subscribe(groupedArrays => {
+      groupedArrays[0].equipLength = groupedArrays.length;
+      this.finalEquipments.push(groupedArrays[0]);
+    });
   }
 
   editPlayground(){
@@ -89,9 +95,17 @@ export class PlaygroundDetailComponent implements OnInit {
       this.playground.equipments.push(this.equipments
         .filter(equipmentFiltered => equipmentFiltered.id === id)[0])
     }
-    
-    console.info("playgrounds" , this.playground);
     this.playgroundService.addOrEditPlayground(this.playground,"edit");
   }
 
+  deleteEquipmentFromPark(id){
+    this.playground.equipments.some((equipmentFiltered) => {
+      if(equipmentFiltered.id === id){
+        const index = this.playground.equipments.indexOf(equipmentFiltered);
+        this.playground.equipments.splice( index, 1 );
+        return true;
+      }
+    });
+    this.playgroundService.addOrEditPlayground(this.playground,"edit");
+  }
 }
