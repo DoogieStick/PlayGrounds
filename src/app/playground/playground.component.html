@@ -24,16 +24,16 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr id="playground{{playground.id}}" *ngFor="let playground of playgrounds">
-					<td>{{playground.id}}</td>
-					<td>{{playground.name}}</td>
+				<tr *ngFor="let playground of playgrounds; let i = index" [attr.data-index]="i">
+					<td>{{i+1}}</td>
+					<td class="detail" [routerLink]="['playground-detail', playground.id]">{{playground.name}}</td>
 					<td>{{playground.description}}</td>
 					<td>{{playground.address}}</td>
 					<td>{{playground.locality}}</td>
 					<td>{{playground.state}}</td>
 					<td>{{playground.country}}</td>
 					<td>
-						<button class="btn btn-info" [routerLink]="['edit-playground', playground.id]">
+						<button class="btn btn-info" [routerLink]="['playground-detail', playground.id]">
 							<i class="fa fa-edit"></i>
 						</button>
 						<button class="btn btn-danger" (click)="deletePlayground(playground.id)">
@@ -44,11 +44,11 @@
 			</tbody>
 		</table>
 		</div>
-		<div class="container" id="Mplayground{{playground.id}}" *ngFor="let playground of playgrounds" [hidden]="visible" (window:resize)="onResize($event)">
+		<div class="container" *ngFor="let playground of playgrounds; let i = index" [attr.data-index]="i" [hidden]="visible" (window:resize)="onResize($event)">
 		  <div class="card">
 		    <div class="card-body">
 			  <div class="pull-right">
-				  <button class="btn btn-info" [routerLink]="['edit-playground', playground.id]">
+				  <button class="btn btn-info" [routerLink]="['playground-detail', playground.id]">
 					<i class="fa fa-edit"></i>
 				  </button>
 				  <button class="btn btn-danger" (click)="deletePlayground(playground.id)">

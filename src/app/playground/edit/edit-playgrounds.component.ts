@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Playground } from './playground';
+import { Playground } from '../playground';
 import { PlaygroundService } from 'app/playground/playground.service';
 
 declare var document : any;
@@ -21,7 +21,8 @@ export class EditPlaygroundsComponent implements OnInit {
     ngOnInit() {
       this.sub = this.route.params.subscribe(params => {
          this.id = +params['id'];
-         this.playground = this.playgroundService.getPlaygroundToEdit(this.id);
+         this.playgroundService.getPlaygroundToEdit(this.id)
+         .then((play) => this.playground = play);
       });
     }
      
@@ -33,14 +34,14 @@ export class EditPlaygroundsComponent implements OnInit {
         this.newPlayground.locality = document.getElementsByName("locality")[0].value;
         this.newPlayground.state = document.getElementsByName("state")[0].value;
         this.newPlayground.country = document.getElementsByName("country")[0].value;
-        this.playgroundService.addOrEditPlayground(this.newPlayground);
+        this.playgroundService.addOrEditPlayground(this.newPlayground,"edit");
         this.newPlayground = [];
     }
     
     focusOnPlayground(){
         
         if(screen.width < 768){
-            var element = document.getElementById("Mplayground"+this.id);
+            var element = document.getElementById("playground"+this.id);
         }else{
             var element = document.getElementById("playground"+this.id);
         }

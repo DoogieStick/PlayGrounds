@@ -9,7 +9,7 @@
 		</div>
 	</div>	
 	<div class="row">
-		<div class="col-md-12 table-responsive">	
+		<div class="col-md-12 table-responsive" [hidden]="!visible" (window:resize)="onResize($event)">	
 		<table class="table table-bordered table-striped table-hover">
 			<thead>
 				<tr>
@@ -21,14 +21,14 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr *ngFor="let equipment of equipments">
+				<tr *ngFor="let equipment of equipments; let i = index" [attr.data-index]="i">
 					<td>{{equipment.id}}</td>
 					<td>{{equipment.code}}</td>
 					<td>{{equipment.description}}</td>
 					<td>{{equipment.selfManufactured}}</td>
 					<td>
-				<button class="btn btn-info" [routerLink]="['edit-equipment', equipment.id]">
-					<i class="fa fa-edit"></i>
+					<button class="btn btn-info" [routerLink]="['edit-equipment', equipment.id]">
+						<i class="fa fa-edit"></i>
 				  </button>
 						<button class="btn btn-danger" (click)="deleteEquipment(equipment.id)">
 							<i class="fa fa-minus"></i>
@@ -38,5 +38,24 @@
 			</tbody>
 		</table>
 		</div>
+		<div class="container" *ngFor="let equipment of equipments; let i = index" [attr.data-index]="i" [hidden]="visible" (window:resize)="onResize($event)">
+		  <div class="card">
+		    <div class="card-body">
+			  <div class="pull-right">
+				  <button class="btn btn-info" [routerLink]="['edit-equipment', equipment.id]">
+					<i class="fa fa-edit"></i>
+				  </button>
+				  <button class="btn btn-danger" (click)="deleteEquipment(equipment.id)">
+					<i class="fa fa-minus"></i>
+				  </button>
+			  </div>
+			  <br><br>
+		      <h4 class="card-title">{{equipment.id}}</h4>		      
+		      <p class="card text-center">{{equipment.code}}</p>
+		      <p class="card text-center">{{equipment.description}}</p>
+		      <p class="card text-center">{{equipment.selfManufactured}}</p>
+		    </div>
+		  </div>
+		</div>		
 	</div>
 </div>	
