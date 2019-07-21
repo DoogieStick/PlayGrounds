@@ -73,12 +73,31 @@
           </div>
         </mat-tab>
         <mat-tab label="Inspections">
-          Tab Two Content
+          <div class="container">
+            <div class="pull-right">
+              <button class="btn btn-success table-top-button" (click)="addEquipmentToPark(equipment.id)">
+                <i class="fa fa-plus"></i>
+              </button>
+            </div>
+            <div class="row">
+              <div class="col-md-4">
+                <div class="container">
+                  <div class="card">
+                    <div class="card-body">
+											<h4 class="card-title">playground id</h4>
+                      <p class="card text-center">inspection</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </mat-tab>
         <mat-tab label="Incidents">
           Tab Two Content
         </mat-tab>
       </mat-tab-group>
+      <button type="button" class="btn btn-primary" routerLink="/playgrounds">  &lt; Back</button>
     </div>
   </div>
 </div>

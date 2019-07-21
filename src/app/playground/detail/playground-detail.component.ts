@@ -1,18 +1,17 @@
 import { Component, OnInit, group } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { Playground } from './playground';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Playground } from '../playground';
 import { PlaygroundService } from 'app/playground/playground.service';
-import { Equipment } from '../equipment/equipment';
-import { EquipmentService } from '../equipment/equipment.service';
+import { Equipment } from '../../equipment/equipment';
+import { EquipmentService } from '../../equipment/equipment.service';
 import {DomSanitizer} from '@angular/platform-browser';
 import {MatIconRegistry} from '@angular/material';
 import { from } from 'rxjs/observable/from';
 import { groupBy, mergeMap, toArray } from 'rxjs/operators';
-
+import { PlaygroundDetailService } from './playground-detail.service';
 
 
 declare var document : any;
-
 
 @Component({
   selector: 'app-playground-detail',
@@ -23,17 +22,23 @@ export class PlaygroundDetailComponent implements OnInit {
 
     id: number;
     private sub: any;
-    playground: Playground;
+    playground = {} as Playground;
     equipments: Equipment[];
     testEquipments: Equipment[];
     newPlayground : any = [];
     finalEquipments : Equipment[];
 
     constructor(private route: ActivatedRoute,
+      private router:  Router,
       private playgroundService: PlaygroundService,
       private equipmentService: EquipmentService,
-      private iconRegistry: MatIconRegistry, 
-      private sanitizer: DomSanitizer) {}
+      private iconRegistry: MatIconRegistry,
+      private sanitizer: DomSanitizer,
+      private playgroundDetailService: PlaygroundDetailService) {
+        if (!this.router.navigated) {
+          this.ngOnInit();
+        }
+      }
 
   ngOnInit() {
     this.finalEquipments = [];
@@ -42,7 +47,8 @@ export class PlaygroundDetailComponent implements OnInit {
       this.sanitizer.bypassSecurityTrustResourceUrl('assets/images/kart.svg'));
        this.sub = this.route.params.subscribe(params => {
          this.id = +params['id'];
-         this.playground = this.playgroundService.getPlaygroundToEdit(this.id);
+         this.playgroundService.getPlaygroundToEdit(this.id)
+         .then((play) => this.playground = play);
       });
   }
 
@@ -75,6 +81,16 @@ export class PlaygroundDetailComponent implements OnInit {
   onSelectChange(event) {
     if(event.index == 1){
       return this.getEquipments();
+    }
+    if(event.index == 2){
+      this.playgroundDetailService.getInspections(this.id)
+      .then((result) => {
+        console.info("ans " , result)
+        /*this.playgroundDetailService.getFilledCheckLists(3)
+        .then((result) => {
+          console.info("ans " , result)
+        })*/
+      });
     }
   }
 

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Playground } from './playground';
+import { Playground } from '../playground';
 import { PlaygroundService } from 'app/playground/playground.service';
 
 declare var document : any;
@@ -21,7 +21,8 @@ export class EditPlaygroundsComponent implements OnInit {
     ngOnInit() {
       this.sub = this.route.params.subscribe(params => {
          this.id = +params['id'];
-         this.playground = this.playgroundService.getPlaygroundToEdit(this.id);
+         this.playgroundService.getPlaygroundToEdit(this.id)
+         .then((play) => this.playground = play);
       });
     }
      
