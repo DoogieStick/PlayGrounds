@@ -1,34 +1,55 @@
 <div class="container">
-	<div class="row">
-			<div class="col-md-12">
-					<h1 class="table-top">CheckLists &nbsp; 
-					<button class="btn btn-success table-top-button"
-						[routerLink]="['add-equipment']">				
-						<i class="fa fa-plus"></i>
-					</button>
-				</h1>
-				</div>		
-		<div class="col-md-4" *ngFor="let checkList of checkLists;  let i = index" [attr.data-index]="i">
-			<div class="container" id="">
-			  <div class="card">
-			    <div class="card-body">
-				  <div class="pull-right">
-					  <button class="btn btn-info" [routerLink]="['check-list-unit', checkList.id]">
-						<i class="fa fa-edit"></i>
-					  </button>
-					  <button class="btn btn-danger" (click)="deleteCheckList(checkList.id)">
-						<i class="fa fa-minus"></i>
-					  </button>
-				  </div>
-				  <br>	
-			      <h3 class="card-title">Check List</h3>		  
-			      <p class="card text-center" [routerLink]="['check-list-unit', checkList.id]" input id="nome">{{checkList.name}} </p>				  
-			    </div>				
-			  </div>
-			</div>
-			<br><br>
-		</div>
-
-	</div>
-</div>	
-
+  <div class="row">
+    <div class="col-md-12">
+      <h1 class="table-top">{{home}}</h1>
+      <button class="btn btn-success table-top-button" [routerLink]="['add-check-list']">
+        <i class="fa fa-plus"></i>
+      </button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12 table-responsive" [hidden]="!visible" (window:resize)="onResize($event)">
+      <table class="table table-bordered table-striped table-hover">
+        <thead>
+          <tr>
+            <th class="text-center">ID</th>
+            <th class="text-center">Name</th>
+            <th class="text-center">&nbsp;</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let checkList of checkLists; let i = index" [attr.data-index]="i">
+            <td>{{i+1}}</td>
+            <td class="detail" [routerLink]="['checkList-detail', checkList.id]">{{checkList.name}}</td>
+            <td>
+              <button class="btn btn-info" [routerLink]="['checkList-detail', checkList.id]">
+                <i class="fa fa-edit"></i>
+              </button>
+              <button class="btn btn-danger" (click)="deleteCheckList(checkList.id)">
+                <i class="fa fa-minus"></i>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="container" *ngFor="let checkList of checkLists; let i = index" [attr.data-index]="i" [hidden]="visible"
+      (window:resize)="onResize($event)">
+      <div class="card">
+        <div class="card-body">
+          <div class="pull-right">
+            <button class="btn btn-info" [routerLink]="['checkList-detail', checkList.id]">
+              <i class="fa fa-edit"></i>
+            </button>
+            <button class="btn btn-danger" (click)="deleteCheckList(checkList.id)">
+              <i class="fa fa-minus"></i>
+            </button>
+          </div>
+          <br>
+          <br>
+          <h4 class="card-title">{{checkList.name}}</h4>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -7,13 +7,13 @@ import { PlaygroundDetailComponent } from './detail/playground-detail.component'
 import { AddPlaygroundComponent } from './add/add-playground.component';
 
 const routesPlaygrounds: Routes = [
-  { path: 'playgrounds/edit-playground/:id', component: EditPlaygroundsComponent},
-  { path: 'playgrounds/playground-detail/:id', component: PlaygroundDetailComponent},
-  { path: 'playgrounds/add-playground', component: AddPlaygroundComponent}
+    { path: 'playgrounds/edit-playground/:id', component: EditPlaygroundsComponent },
+    { path: 'playgrounds/playground-detail/:id', component: PlaygroundDetailComponent },
+    { path: 'playgrounds/add-playground', component: AddPlaygroundComponent }
 ];
 
 @NgModule({
-    imports: [RouterModule.forRoot(routesPlaygrounds, {useHash: true})],
-  exports: [ RouterModule ]
+    imports: [RouterModule.forRoot(routesPlaygrounds, { useHash: true })],
+    exports: [RouterModule]
 })
-export class PlaygroundRoutingModule {}
+export class PlaygroundRoutingModule { }

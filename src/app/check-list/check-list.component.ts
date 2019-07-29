@@ -1,60 +1,39 @@
+import { CheckList } from './check-list.model';
 import { Component, OnInit } from '@angular/core';
-import {Router} from '@angular/router'
-import { CheckList } from './check-list';
 import { CheckListService } from './check-list.service';
-import { ModalComponent } from '../modal/modal.component';
-
-declare var document : any;
-declare var console : any;
-
 
 @Component({
-  selector: 'app-check-list',
-  templateUrl: './check-list.component.html',
-  styleUrls: ['./check-list.component.css']
+    selector: 'app-check-list',
+    templateUrl: './check-list.component.html',
+    styleUrls: ['./check-list.component.css']
 })
-    
 export class CheckListComponent implements OnInit {
 
-	checkLists: CheckList[];
-	visible: boolean = true;
-	breakpoint: number = 768;
+    visible = true;
+    breakpoint = 768;
+    home = 'Check-list';
+    checkLists: CheckList[];
 
+    constructor(private checkListService: CheckListService) { }
 
- constructor(private checkListService: CheckListService
-							, private modal : ModalComponent) { }  
+    ngOnInit() {
+        this.getCheckLists();
+        if (screen.width < 768) { this.visible = false; }
+    }
 
- 
-	  ngOnInit() {
-		  this.getCheckLists();
-		  if(screen.width < 768){this.visible = false;}  
-	  }
+    getCheckLists() {
+        this.checkListService.getCheckListsFromData()
+        .then(result => {
+            this.checkLists = result.Items;
+            document.getElementById('dim').style.display = 'none';
+        })
+    }
 
-  
-	 getCheckLists() {
-		this.checkListService.getCheckListsFromData()
-		.then(result => {
-			this.checkLists = result.Items;
-		});
-	}
-  
-  
-    onResize(event) {
-      const w = event.target.innerWidth;
-      if (w >= this.breakpoint) {
-        this.visible = true;
-      } else {
-        this.visible = false;
-      }
-		}	
-		
     deleteCheckList(id) {
-    	var modal = this.modal.openModalAlert("Exclusion" , "Confirm exclusion of this checkList?",this.checkListService);
-        modal.then(function(value) {
-           if(value.cod === 1){
-            value.controller.deleteCheckList(id);
-           }
-        });
-    }		
-  
+    }
+
+    onResize(event) {
+        const w = event.target.innerWidth;
+        (w >= this.breakpoint) ? this.visible = true : this.visible = false;
+    }
 }

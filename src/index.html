@@ -1,17 +1,72 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
   <meta charset="utf-8">
-  <base href="./">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+  <meta name="application-name" content="Playground">
+  <title>Playground</title>
+  <meta name="description" content="Playground">
+
+  <!-- Configured Head Tags  -->
   <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
   <link rel="icon" href="./favicon.ico" type="image/x-icon">
   <link href="./assets/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
   <link href="./assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
 
+  <!-- base url -->
+  <base href="./">
 </head>
+
 <body>
-  	<app-root>Loading...</app-root>
+  <app-root>
+    <style>
+        /*
+        * Inline css to add simple styles for loader.
+        * Is going to be replaced by angular after bootstrap.
+        */
+        app-root {
+            position: absolute;
+            top: 0; right: 0; bottom: 0; left: 0;
+            padding-top: 45vh;
+            text-align: center;
+            background-color: #eee;
+            font: 14px sans-serif;
+        }
+    </style>
+    <p> Loading...</p>
+    <noscript>
+      <style>
+        .noscript {
+          position: absolute;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          margin: auto;
+          padding: 15vh 3vh;
+          text-align: center;
+          font: 500 18px Roboto, sans-serif;
+          color: #333;
+        }
+
+        #gif-loading {
+          display: none;
+        }
+
+      </style>
+      <div class="noscript">
+        <h1><img src="assets/images/icon-noscript.png" alt="Script disabled"/></h1>
+        Oops! To use this application, please be sure JavaScript is enabled.
+      </div>
+    </noscript>
+  </app-root>
+
+  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+
 </body>
+
 </html>
